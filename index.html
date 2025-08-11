@@ -705,7 +705,7 @@
                 let timerDisplay = '';
                 let taskClass = '';
                 
-                // Show timer for all tasks but only run for current
+                // Show timer for all tasks with their full duration initially
                 let timerText;
                 if (task.duration >= 3600) {
                     const hours = Math.floor(task.duration / 3600);
@@ -720,6 +720,9 @@
                 }
                 let statusIcon = '⏹️';
                 
+                // Always show timer display with full duration initially
+                timerDisplay = `<div class="timer-display">${statusIcon} ${timerText}</div>`;
+                
                 if (isActive) {
                     if (timer) {
                         taskClass = 'active';
@@ -729,6 +732,7 @@
                         statusIcon = '⏸️';
                     } else {
                         taskClass = 'active';
+                        statusIcon = '⏹️';
                     }
                     
                     // Show actual remaining time for current task
@@ -747,9 +751,6 @@
                         }
                         timerDisplay = `<div class="timer-display">${statusIcon} ${activeTimeText}</div>`;
                     }
-                } else {
-                    // Show total duration for other tasks
-                    timerDisplay = `<div class="timer-display">${statusIcon} ${remMinutes}:${remSeconds.toString().padStart(2, '0')}</div>`;
                 }
                 
                 if (task.completed) {
