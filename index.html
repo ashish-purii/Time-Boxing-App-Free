@@ -15,10 +15,29 @@
     body{ font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif; background:linear-gradient(135deg,var(--bg1) 0%,var(--bg2) 100%); color:var(--text); min-height:100vh; line-height:1.5; }
     .container{max-width:980px;margin:0 auto;padding:16px}
 
-    /* Copy Entire Code button (fixed, top-left like canvas icon) */
-    .copy-all{ position:fixed; top:10px; left:10px; z-index:2000; width:38px; height:38px; border-radius:10px; background:rgba(255,255,255,.95); border:1px solid rgba(0,0,0,.1); display:flex; align-items:center; justify-content:center; box-shadow:0 6px 16px rgba(0,0,0,.12); cursor:pointer; }
+    /* Creator Credit Button (fixed, top-left) */
+    .copy-all{ 
+      position:fixed; 
+      top:10px; 
+      left:10px; 
+      z-index:2000; 
+      min-width:38px; 
+      height:38px; 
+      padding:0 12px;
+      border-radius:10px; 
+      background:rgba(255,255,255,.95); 
+      border:1px solid rgba(0,0,0,.1); 
+      display:flex; 
+      align-items:center; 
+      justify-content:center; 
+      box-shadow:0 6px 16px rgba(0,0,0,.12); 
+      cursor:pointer; 
+      font-size:12px;
+      font-weight:600;
+      color:#374151;
+      white-space:nowrap;
+    }
     .copy-all:active{transform:scale(.98)}
-    .copy-all svg{width:20px;height:20px;stroke:#374151}
 
     /* Hero */
     .hero-section{text-align:center;color:#fff;margin:46px 0 20px}
@@ -222,12 +241,9 @@
   </style>
 </head>
 <body>
-  <!-- Copy Entire Code button -->
-  <button class="copy-all" aria-label="Copy entire code" title="Copy entire code">
-    <svg viewBox="0 0 24 24" fill="none" stroke-width="2">
-      <rect x="9" y="9" width="13" height="13" rx="2" stroke="currentColor"></rect>
-      <rect x="2" y="2" width="13" height="13" rx="2" stroke="currentColor"></rect>
-    </svg>
+  <!-- Creator Credit Button -->
+  <button class="copy-all" aria-label="Made by Ashish Puri" title="Made by Ashish Puri" onclick="document.querySelector('.personal-brand h3').scrollIntoView({behavior: 'smooth'})">
+    Made By Ashish Puri💌⭐
   </button>
 
   <div class="container">
