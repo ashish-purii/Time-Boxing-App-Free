@@ -142,45 +142,44 @@
 
     /*
       =========================
-      MOBILE: Adjusted layout for Task Queue (≤520px)
-      - Use the previously-unused space by reducing bottom padding and centering controls vertically
-      - Allow more visible task text (3 lines) without expanding
-      - Make Remove button smaller and timer compact
-      - No JS/HTML changes — only mobile CSS
+      MOBILE: Refined layout for Task Queue (≤520px)
+      - Place controls in a right column (single column) so they don't steal horizontal text space
+      - Keep controls vertically centered so the space above/below is usable for text lines
+      - Clamp task-name to 3 lines in collapsed state; expanded removes clamp
+      - Reduce Remove button and timer font (no increases)
+      - Only CSS changes here
       =========================
     */
     @media (max-width:520px) {
-      /* compact the grid to icon + content; smaller right padding so text may use more vertical space.
-         Controls are vertically centered so the area above them is used by task text. */
+      /* Grid: icon | content | right-controls */
       .task-item{
         display:grid;
-        grid-template-columns:28px 1fr;
+        grid-template-columns:28px 1fr 88px;
         gap:8px;
-        padding:12px 92px 12px 8px; /* smaller right padding than before to use more horizontal/vertical area */
-        position:relative;
-        align-items:flex-start;
-        min-height:56px;
+        padding:10px;
+        align-items:start;
       }
 
-      /* move-controls (reorder buttons) kept small and aligned in the left area */
+      /* Make move controls compact on the left column */
       .move-controls{
         display:flex;
         flex-direction:column;
         gap:6px;
-        margin-right:6px;
+        margin-right:4px;
         justify-content:flex-start;
+        align-items:center;
       }
       .move-btn{
         height:22px;
         padding:0 6px;
-        font-size:10px;
+        font-size:11px;
         border-radius:6px;
         display:flex;
         align-items:center;
         justify-content:center;
       }
 
-      /* allow up to 3 lines for the task name on mobile preview; keep it clamped so layout stays compact */
+      /* Task name: clamp to 3 lines so more text is visible without expanding */
       .task-name{
         display:-webkit-box;
         -webkit-line-clamp:3;
@@ -188,13 +187,12 @@
         overflow:hidden;
         white-space:normal;
         font-size:13px;
-        line-height:1.16;
+        line-height:1.18;
         margin-right:4px;
-        margin-bottom:4px;
-        max-height: calc(3 * 1.16em); /* clamp to 3 lines */
+        max-height: calc(3 * 1.18em);
       }
 
-      /* when expanded, remove clamping to show full content */
+      /* Expanded: remove clamp so full name appears */
       .task-item.expanded .task-name,
       .task-name.expanded {
         -webkit-line-clamp:unset;
@@ -205,44 +203,40 @@
         line-height:1.28;
       }
 
-      /* smaller duration meta */
       .task-time{ font-size:11px; color:var(--muted); margin-top:6px; }
 
-      /* Position timer to the right and vertically centered (so the vertical space above controls can be used by text) */
+      /* Put timer into the right column and keep it compact & vertically centered */
       .timer-display{
-        position:absolute;
-        right:78px;          /* places timer to the left of the Remove button */
-        top:50%;
-        transform:translateY(-50%);
+        grid-column:3;
+        justify-self:end;
+        align-self:center;
         font-size:12px !important;
         min-width:56px;
         height:auto;
-        display:flex;
+        display:inline-flex;
         align-items:center;
         justify-content:center;
         padding:4px 8px;
         font-weight:800;
         background:rgba(59,130,246,0.06);
-        color:#1e40af;
+        color:#1e3a8a;
         border-radius:8px;
-        border:1px solid rgba(59,130,246,0.10);
+        border:1px solid rgba(59,130,246,0.08);
         box-shadow:none;
         text-align:center;
       }
 
-      /* Place Remove and other controls at the right and vertically centered too */
+      /* Put Remove in the same right column, stacked under/over timer — vertically centered as a column */
       .task-controls{
-        position:absolute;
-        right:8px;
-        top:50%;
-        transform:translateY(-50%);
+        grid-column:3;
         display:flex;
+        flex-direction:column;
         gap:6px;
-        align-items:center;
-        z-index:2;
+        justify-content:center;
+        align-items:flex-end;
       }
 
-      /* Make Remove smaller and compact — pill style */
+      /* Make Remove button smaller & pill-shaped to save space */
       .task-controls .btn-danger{
         height:28px;
         padding:0 8px;
@@ -253,15 +247,15 @@
         min-width:56px;
       }
 
-      /* Slightly more space when expanded so the larger text doesn't clash with controls */
+      /* Keep expanded item padding comfortable but avoid collision with controls */
       .task-item.expanded{
-        padding-right:18px;
+        padding-right:12px;
       }
 
-      /* allow task-info to shrink properly */
+      /* Ensure task-info can shrink properly */
       .task-info{ min-width:0; }
 
-      /* reduce large timer font in expanded state as well */
+      /* reduce any large expanded timer font as well */
       .timer-display.expanded{ font-size:13px; }
     }
   </style>
