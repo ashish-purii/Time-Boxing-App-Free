@@ -1,180 +1,129 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- Charset & Viewport -->
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  <!-- Primary SEO -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Free Timeboxing App — Online Time Blocking & Focus Timer | Timer Machine</title>
   <meta name="description" content="Free online timeboxing app, time blocking planner, and focus timer. Build deep-work sessions, track progress, and boost productivity on web, iOS, and Android. Open source and privacy-first.">
-  <link rel="canonical" href="https://yourdomain.com/">
-
-  <!-- Expanded keywords (optional). Keep phrases that also appear on-page. -->
-  <meta name="keywords" content="timeboxing app, time boxing app, timeboxing tool, timeboxing software, timeboxing website, free timeboxing app, online timeboxing, open-source timeboxing, timeboxing timer, timeboxing planner, timeboxing tracker, timeboxing method, timeboxing technique, time blocking, time blocking app, time blocking planner, time blocking vs timeboxing, productivity app, productivity tool, productivity system, productivity websites, focus timer, pomodoro timer, deep work timer, study timer, work timer, concentration timer, task manager, task planner, to-do list, habit tracker, routine planner, daily planner, calendar planner, schedule maker, goal tracker, streak tracker, time tracker, productivity tracker, session analytics, browser timer, web timer app, mobile timer app, desktop timer, cross-platform timer, PWA timer, iPhone timeboxing, Android timeboxing, Mac timeboxing, Windows timeboxing, Linux timeboxing, privacy-first timer, offline timer, no sign up timer, best free timeboxing app, simple timeboxing app, timeboxing for students, timeboxing for ADHD, timeboxing with calendar, productivity sites, productivity tools free, time management websites, time management tools free">
-
-  <!-- Robots & Theme -->
   <meta name="robots" content="index, follow">
   <meta name="author" content="Ashish Puri">
   <meta name="theme-color" content="#667eea">
-
-  <!-- Open Graph -->
-  <meta property="og:title" content="Free Timeboxing App — Time Blocking & Focus Timer">
-  <meta property="og:description" content="Plan blocks and focus deeply with our free, open-source timeboxing app. Works on any device.">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://yourdomain.com/">
-  <meta property="og:site_name" content="Timer Machine">
-  <meta property="og:locale" content="en_US">
-  <meta property="og:image" content="https://yourdomain.com/og-image.jpg">
-
-  <!-- Twitter -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Free Timeboxing App — Time Blocking & Focus Timer">
-  <meta name="twitter:description" content="Free online timeboxing and focus timer across devices. Open source and privacy-first.">
-  <meta name="twitter:image" content="https://yourdomain.com/og-image.jpg">
-  <meta name="twitter:creator" content="@_ashish_puri">
-
-  <!-- PWA / Mobile -->
-  <meta name="mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-  <meta name="apple-mobile-web-app-title" content="Timer Machine">
-
-  <!-- Structured Data -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "SoftwareApplication",
-    "name": "Timer Machine — Free Timeboxing App",
-    "url": "https://yourdomain.com/",
-    "applicationCategory": "ProductivityApplication",
-    "operatingSystem": "Android,iOS,macOS,Windows,Linux,Web",
-    "description": "Free online timeboxing and time blocking tool with a focus timer, task queue, and session analytics. Cross-platform PWA, open source, privacy-first.",
-    "offers": {"@type":"Offer","price":"0","priceCurrency":"USD"},
-    "publisher": {"@type":"Person","name":"Ashish Puri"},
-    "featureList": [
-      "Timeboxing timer and task queue",
-      "Time blocking planner with quick adjustments",
-      "Session analytics and progress bar",
-      "Cross-platform PWA (Web, iOS, Android, Desktop)",
-      "Offline capable and no sign-up",
-      "Fast keyboard-friendly controls"
-    ]
-  }
-  </script>
-
-  <!-- Styles -->
   <style>
-    *{margin:0;padding:0;box-sizing:border-box}
-    body{
-      font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;
-      background:linear-gradient(135deg,#667eea 0%,#764ba2 100%);
-      min-height:100vh;color:#333;line-height:1.6
-    }
-    .container{max-width:1000px;margin:0 auto;padding:15px}
+    :root{ --bg1:#667eea; --bg2:#764ba2; --card:rgba(255,255,255,.96); --muted:#6b7280; --text:#1f2937; --radius:16px; --radius-sm:10px; --gap:12px; --btn-h:44px; --btn-pad:10px 14px; --btn-font:14px; }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0}
+    body{ font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif; background:linear-gradient(135deg,var(--bg1) 0%,var(--bg2) 100%); color:var(--text); min-height:100vh; line-height:1.5; }
+    .container{max-width:980px;margin:0 auto;padding:16px}
 
-    .hero-section{text-align:center;color:#fff;margin-bottom:40px;padding:20px}
-    .hero-section h1{font-size:clamp(1.8rem,4vw,3rem);font-weight:800;margin-bottom:12px;text-shadow:2px 2px 4px rgba(0,0,0,.3)}
-    .hero-section .subtitle{font-size:clamp(1rem,2.5vw,1.25rem);margin-bottom:16px;opacity:.95;font-weight:500}
-    .hero-stats{display:flex;justify-content:center;flex-wrap:wrap;gap:12px;margin-top:12px;font-size:clamp(.85rem,2vw,1rem)}
-    .stat-item{background:rgba(255,255,255,.15);padding:10px 16px;border-radius:25px;backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.2)}
+    /* Copy Entire Code button (fixed, top-left like canvas icon) */
+    .copy-all{ position:fixed; top:10px; left:10px; z-index:2000; width:38px; height:38px; border-radius:10px; background:rgba(255,255,255,.95); border:1px solid rgba(0,0,0,.1); display:flex; align-items:center; justify-content:center; box-shadow:0 6px 16px rgba(0,0,0,.12); cursor:pointer; }
+    .copy-all:active{transform:scale(.98)}
+    .copy-all svg{width:20px;height:20px;stroke:#374151}
 
-    .card{background:rgba(255,255,255,.96);backdrop-filter:blur(12px);border-radius:20px;padding:22px;margin-bottom:22px;box-shadow:0 10px 32px rgba(0,0,0,.1);border:1px solid rgba(255,255,255,.3);transition:.3s}
-    .card:hover{transform:translateY(-2px);box-shadow:0 14px 44px rgba(0,0,0,.14)}
+    /* Hero */
+    .hero-section{text-align:center;color:#fff;margin:46px 0 20px}
+    .hero-section h1{font-size:clamp(20px,4.8vw,36px);font-weight:800;margin:6px 0 8px;text-shadow:0 2px 8px rgba(0,0,0,.25)}
+    .subtitle{font-size:clamp(13px,3.6vw,17px);opacity:.95}
+    .hero-stats{display:flex;justify-content:center;flex-wrap:wrap;gap:8px;margin-top:10px}
+    .stat-item{background:rgba(255,255,255,.15);padding:6px 10px;border-radius:999px;border:1px solid rgba(255,255,255,.25);font-size:12px}
 
-    .tabs{display:flex;margin-bottom:18px;background:rgba(255,255,255,.2);border-radius:14px;padding:6px}
-    .tab{flex:1;padding:12px;text-align:center;border-radius:10px;cursor:pointer;transition:.25s;color:rgba(0,0,0,.85);font-weight:700}
-    .tab.active{background:rgba(255,255,255,.95);color:#333;box-shadow:0 4px 15px rgba(0,0,0,.1)}
-    .tab-content{display:none}.tab-content.active{display:block}
+    /* Cards */
+    .card{background:var(--card);border:1px solid rgba(0,0,0,.06);border-radius:var(--radius);padding:14px;box-shadow:0 6px 24px rgba(0,0,0,.08);margin-bottom:14px}
 
-    .input-section{display:grid;grid-template-columns:1fr auto;gap:12px;margin-bottom:16px;align-items:end}
-    @media(max-width:768px){.input-section{grid-template-columns:1fr;gap:10px}}
-    .input-group{display:flex;flex-direction:column}
-    label{font-weight:700;margin-bottom:6px;color:#555;font-size:clamp(.9rem,2vw,1rem)}
-    input,textarea,select{padding:14px;border:2px solid #e1e5e9;border-radius:12px;font-size:clamp(.9rem,2vw,1rem);transition:.2s;background:rgba(255,255,255,.9)}
-    input:focus,textarea:focus,select:focus{outline:none;border-color:#667eea;box-shadow:0 0 0 3px rgba(102,126,234,.12);transform:scale(1.01)}
+    /* Tabs */
+    .tabs{display:flex;gap:6px;background:rgba(102,126,234,.14);border-radius:12px;padding:6px;margin-bottom:10px}
+    .tab{flex:1;text-align:center;padding:8px 10px;border-radius:10px;font-weight:700;cursor:pointer;color:#1f2937;font-size:14px}
+    .tab.active{background:#fff;box-shadow:0 3px 12px rgba(0,0,0,.08)}
 
-    button{background:linear-gradient(135deg,#667eea,#764ba2);color:#fff;border:none;padding:14px 22px;border-radius:12px;cursor:pointer;font-weight:700;font-size:clamp(.9rem,2vw,1rem);transition:.2s;box-shadow:0 4px 14px rgba(102,126,234,.3)}
-    button:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(102,126,234,.4)}
+    /* Inputs */
+    .input-section{display:grid;grid-template-columns:1fr 1fr auto;gap:10px;align-items:end}
+    @media(max-width:640px){.input-section{grid-template-columns:1fr 1fr}}
+    .input-group{display:flex;flex-direction:column;gap:6px}
+    label{font-weight:700;color:#374151;font-size:13px}
+    input,textarea{padding:10px 12px;border:1.5px solid #e5e7eb;border-radius:10px;font-size:14px;background:#fff}
+    input:focus,textarea:focus{outline:none;border-color:var(--bg1);box-shadow:0 0 0 3px rgba(102,126,234,.15)}
+    .example{font-size:12px;color:#6b7280;background:#f9fafb;border:1px dashed #e5e7eb;border-radius:10px;padding:8px;margin:6px 0}
 
-    .task-list{margin-top:16px}
-    .task-item{display:flex;justify-content:space-between;align-items:center;padding:16px;background:rgba(255,255,255,.88);margin-bottom:12px;border-radius:14px;border-left:5px solid #667eea;transition:.2s}
-    .task-item:hover{background:#fff;transform:translateX(3px)}
-    .task-item.active{background:rgba(102,126,234,.12);border-left-color:#4CAF50;border:2px solid #4CAF50;box-shadow:0 6px 18px rgba(76,175,80,.24)}
-    .task-item.paused{background:rgba(243,156,18,.12);border:2px solid #f39c12;box-shadow:0 6px 18px rgba(243,156,18,.24)}
+    /* Buttons */
+    button{height:38px;padding:0 8px;font-size:13px;border:none;border-radius:8px;cursor:pointer;color:#fff;background:linear-gradient(135deg,var(--bg1),var(--bg2));display:inline-flex;align-items:center;justify-content:center;gap:4px;font-weight:700;box-shadow:0 4px 12px rgba(102,126,234,.28);transition:transform .12s ease}
+    @media(max-width:520px){button{height:32px;font-size:12px;padding:0 6px}}
+    button:hover{transform:translateY(-1px)}
+    .btn-line{background:#eef2ff;color:#4338ca;border:1px solid #dbeafe}
+    .btn-danger{background:#ef4444}
+    .btn-success{background:#10b981}
+    .btn-warning{background:#f59e0b}
+    .btn-info{background:#3b82f6}
 
-    .task-info{flex:1}
-    .task-name{font-weight:800;margin-bottom:6px;font-size:clamp(.95rem,2vw,1.1rem)}
-    .task-time{color:#666;font-size:clamp(.85rem,2vw,.95rem)}
-    .timer-display{font-size:clamp(1.1rem,3vw,1.6rem);font-weight:800;color:#667eea;margin-right:16px;font-family:'Courier New',monospace}
-    .task-controls{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
-    .btn-small{padding:8px 14px;font-size:.85rem;border-radius:8px;min-width:80px}
-    .btn-danger{background:#e74c3c}.btn-success{background:#4CAF50}.btn-warning{background:#f39c12}.btn-info{background:#3498db}
+    /* Timer controls grid */
+    .controls-grid{display:grid;gap:6px;grid-template-columns:repeat(5,minmax(0,1fr))}
+    @media(max-width:520px){.controls-grid{gap:4px}}
+    .time-adjustments{display:grid;gap:6px;margin-top:8px;grid-template-columns:repeat(4,minmax(0,1fr))}
 
-    .move-controls{display:flex;flex-direction:column;gap:4px;margin-right:12px}
-    .move-btn{padding:4px 8px;font-size:10px;background:#95a5a6;color:#fff;border:none;border-radius:4px;cursor:pointer}
-    .move-btn:hover{background:#7f8c8d}.move-btn:disabled{opacity:.5;cursor:not-allowed}
+    /* Task list */
+    .task-list{display:flex;flex-direction:column;gap:10px}
+    .task-item{display:grid;align-items:center;grid-template-columns:34px 1fr auto auto;gap:10px;padding:10px;background:#fff;border-radius:12px;border:1px solid #e5e7eb;cursor:pointer;transition:all .2s ease}
+    .task-item:hover{box-shadow:0 4px 12px rgba(0,0,0,.1)}
+    .task-item.active{border-color:#10b981;background:#ecfdf5}
+    .task-item.paused{border-color:#f59e0b;background:#fffbeb}
+    .task-item.expanded{padding:16px;box-shadow:0 8px 24px rgba(0,0,0,.15);transform:scale(1.02);border-color:#667eea;background:#f8faff}
+    .move-controls{display:flex;flex-direction:column;gap:6px}
+    .move-btn{height:20px;padding:0 4px;font-size:10px;border-radius:5px;background:#9ca3af;color:#fff;border:none;cursor:pointer}
+    .move-btn:disabled{opacity:.4}
+    .task-info{min-width:0}
+    .task-name{font-weight:800;font-size:14px;color:#111827;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;transition:all .2s ease}
+    .task-name.expanded{white-space:normal;overflow:visible;text-overflow:unset;font-size:16px;line-height:1.4;color:#667eea}
+    .task-time{font-size:12px;color:var(--muted)}
+    .timer-display{font-family:ui-monospace,Menlo,Consolas,monospace;font-weight:800;color:#4338ca;min-width:78px;text-align:right;font-size:14px}
+    .timer-display.expanded{font-size:18px;color:#667eea}
+    .task-controls{display:flex;gap:8px}
+    .task-controls .btn-danger{height:32px;padding:0 10px;font-size:12px}
 
-    .progress-bar{width:100%;height:8px;background:rgba(255,255,255,.3);border-radius:4px;overflow:hidden;margin:12px 0}
-    .progress{height:100%;background:linear-gradient(90deg,#4CAF50,#45a049);border-radius:4px;transition:width .4s ease}
+    /* Progress */
+    .progress-bar{width:100%;height:8px;background:#eef2ff;border-radius:6px;overflow:hidden;margin:8px 0}
+    .progress{height:100%;background:linear-gradient(90deg,#10b981,#16a34a)}
 
-    .timer-controls{text-align:center;margin:24px 0}
-    .timer-controls button{margin:6px;padding:16px 26px;min-width:120px}
-    .time-adjustments{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin-top:12px}
-    .time-adjustments button{padding:10px 16px !important;min-width:100px}
+    /* Warning popup */
+    .warning-popup{position:fixed;inset:auto 12px 12px 12px;background:#111827;color:#fff;padding:12px;border-radius:14px;display:none;z-index:1000;border:1px solid rgba(255,255,255,.1)}
+    .warning-popup h3{margin:0 0 4px;font-size:15px}
+    .warning-popup p{margin:0 0 8px;font-size:13px;color:#e5e7eb}
+    .warning-controls{display:grid;gap:8px;grid-template-columns:repeat(4,1fr)}
+    .time-input{width:100%;height:var(--btn-h);text-align:center}
 
-    .warning-popup{position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);background:rgba(231,76,60,.96);color:#fff;padding:26px 34px;border-radius:18px;text-align:center;box-shadow:0 15px 40px rgba(0,0,0,.35);z-index:1000;display:none;backdrop-filter:blur(12px);border:2px solid rgba(255,255,255,.25)}
-    .warning-controls{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:14px}
-    .time-input{width:80px;padding:8px;margin:0 6px;border:2px solid #ddd;border-radius:6px;text-align:center}
-
-    .floating-credit{position:fixed;bottom:22px;right:22px;background:rgba(255,255,255,.95);backdrop-filter:blur(12px);padding:10px 18px;border-radius:26px;font-size:.85rem;color:#667eea;font-weight:800;box-shadow:0 6px 22px rgba(0,0,0,.15);border:1px solid rgba(255,255,255,.4);cursor:pointer}
-    .floating-credit:hover{transform:translateY(-2px);box-shadow:0 10px 28px rgba(0,0,0,.22)}
-
-    .hint{font-size:.85rem;color:#777;margin-bottom:10px;font-style:italic}
-
-    .personal-brand{text-align:center;margin:32px 0;padding:26px;background:rgba(255,255,255,.12);border-radius:18px;backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.2);color:#fff}
-    .social-links{display:flex;justify-content:center;flex-wrap:wrap;gap:16px;margin:14px 0}
-    .social-links a{color:rgba(255,255,255,.92);text-decoration:none;font-size:1rem;transition:.2s;padding:8px 14px;border-radius:20px;background:rgba(255,255,255,.12)}
-    .social-links a:hover{color:#fff;background:rgba(255,255,255,.22);transform:translateY(-2px)}
-    .donate-link{display:inline-block;background:linear-gradient(135deg,#f39c12,#e67e22)!important;color:#fff!important;padding:12px 22px!important;border-radius:24px!important;margin-top:12px!important;font-weight:800!important;text-decoration:none}
-
-    /* Donation QR + layout */
-    .donation-block{display:flex;flex-wrap:wrap;gap:16px;align-items:center;justify-content:center;margin-top:12px}
-    .donation-block img{width:160px;height:160px;object-fit:contain;border-radius:8px;border:1px solid rgba(255,255,255,.12);background:#fff;padding:6px}
+    /* Content & brand */
+    .content{background:var(--card);border:1px solid rgba(0,0,0,.06);border-radius:var(--radius);padding:16px}
+    .content h2{font-size:20px;margin:4px 0 8px}
+    .content h3{font-size:16px;margin:12px 0 6px}
+    .content p{margin:8px 0;font-size:14px;color:#111827}
+    .content ul{margin:6px 0 6px 18px;font-size:14px}
+    .personal-brand{text-align:center;color:#fff;padding:16px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.22);border-radius:16px}
+    .social-links{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin:10px 0}
+    .social-links a{color:#fff;text-decoration:none;font-size:14px;background:rgba(255,255,255,.16);padding:8px 12px;border-radius:999px}
+    .donation-block{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:center;margin-top:8px}
+    .donation-block img{width:144px;height:144px;object-fit:contain;background:#fff;border-radius:10px;border:1px solid rgba(0,0,0,.06);padding:6px}
     .donation-links{display:flex;flex-direction:column;gap:8px;align-items:center}
-    .donation-links a{display:inline-block;padding:10px 14px;border-radius:12px;background:rgba(255,255,255,.95);color:#333;font-weight:700;text-decoration:none;border:1px solid rgba(0,0,0,.06)}
-    .donation-links .small{padding:8px 12px;font-size:.95rem}
-
-    @media(max-width:768px){
-      .container{padding:10px}
-      .card{padding:18px;margin-bottom:18px}
-      .task-item{flex-direction:column;align-items:flex-start;gap:10px}
-      .timer-display{margin-right:0;margin-bottom:8px}
-      .hero-stats{flex-direction:column}
-      .timer-controls button{margin:5px}
-      .floating-credit{bottom:14px;right:14px}
-      .donation-block{flex-direction:column}
-    }
-
-    /* Simple content section styling */
-    .content{background:rgba(255,255,255,.96);border-radius:20px;padding:24px;margin:22px 0;box-shadow:0 10px 32px rgba(0,0,0,.08)}
-    .content h2{font-size:clamp(1.4rem,3vw,1.9rem);margin-bottom:10px}
-    .content h3{font-size:clamp(1.1rem,2.5vw,1.4rem);margin:16px 0 8px}
-    .content p{margin:8px 0}
-    .content ul{margin:8px 0 8px 18px}
+    .donate-link{background:linear-gradient(135deg,#f59e0b,#ef4444)!important;color:#fff!important;padding:10px 16px!important;border-radius:999px!important;font-weight:800!important;text-decoration:none}
+    .donation-links a{background:#fff;color:#111827;border:1px solid #e5e7eb;border-radius:10px;padding:8px 12px;text-decoration:none;font-weight:700;font-size:14px}
   </style>
 </head>
 <body>
+  <!-- Copy Entire Code button -->
+  <button class="copy-all" aria-label="Copy entire code" title="Copy entire code">
+    <svg viewBox="0 0 24 24" fill="none" stroke-width="2">
+      <rect x="9" y="9" width="13" height="13" rx="2" stroke="currentColor"></rect>
+      <rect x="2" y="2" width="13" height="13" rx="2" stroke="currentColor"></rect>
+    </svg>
+  </button>
+
   <div class="container">
     <!-- Hero -->
     <div class="hero-section">
       <h1>🚀 Free Timeboxing App — Time Blocking & Focus Timer</h1>
-      <p class="subtitle">Plan focused blocks, track sessions, and reach deep work with a free, open-source, cross-platform timer built for makers, students, and teams.</p>
+      <p class="subtitle">Plan focused blocks, track sessions, and reach deep work with a free, open‑source timer built for makers, students, and teams.</p>
       <div class="hero-stats">
-        <div class="stat-item">✅ 100% Free & Open Source</div>
-        <div class="stat-item">📱 Works on iPhone & Android</div>
-        <div class="stat-item">💻 Desktop Compatible</div>
-        <div class="stat-item">🔒 Privacy-first • No Sign-up</div>
+        <div class="stat-item">✅ Free & Open Source</div>
+        <div class="stat-item">📱 iPhone & Android</div>
+        <div class="stat-item">💻 Desktop Friendly</div>
+        <div class="stat-item">🔒 Privacy‑first - No Sign‑up</div>
       </div>
     </div>
 
@@ -187,182 +136,225 @@
       </div>
 
       <!-- Manual -->
-      <div id="manual" class="tab-content active">
+      <div id="manual" class="tab-content" style="display:block">
         <div class="input-section">
           <div class="input-group">
-            <label for="taskName">Task Name:</label>
-            <input type="text" id="taskName" placeholder="Enter task name...">
+            <label for="taskName">Task Name</label>
+            <input type="text" id="taskName" placeholder="Write task…">
           </div>
-        </div>
-        <div class="input-section">
           <div class="input-group">
-            <label for="taskTime">Duration (minutes):</label>
-            <input type="number" id="taskTime" min="1" placeholder="Enter duration...">
+            <label for="taskTime">Minutes</label>
+            <input type="number" id="taskTime" min="1" placeholder="e.g. 25">
           </div>
           <button onclick="addTask()">Add Task</button>
         </div>
       </div>
 
       <!-- Bulk -->
-      <div id="bulk" class="tab-content">
-        <label for="bulkInput">Paste your task list (one per line):</label>
-        <div class="example">
-          Email review - 15<br>
-          Project meeting - 30<br>
-          Code review - 45
-        </div>
-        <textarea id="bulkInput" class="bulk-input" placeholder="Email review - 15&#10;Project meeting - 30&#10;Code review - 45"></textarea>
-        <button onclick="parseBulkTasks()">Add Tasks</button>
+      <div id="bulk" class="tab-content" style="display:none">
+        <label for="bulkInput">Paste one task per line</label>
+        <div class="example">Email review - 15<br>Project meeting 30<br>Code review – 45</div>
+        <textarea id="bulkInput" rows="8" style="min-height: 180px; width: 100%;" placeholder="Email review - 15
+Project meeting 30
+Code review – 45"></textarea>
+        <div style="margin-top:8px"><button class="btn-line" onclick="parseBulkTasks()">Add Tasks</button></div>
       </div>
 
       <!-- JSON -->
-      <div id="json" class="tab-content">
-        <h3>📄 AI-Powered JSON Import</h3>
-        <div class="hint">
-          Prompt to paste into any AI: Convert my tasks to JSON. Time is in minutes. Only return JSON, no explanations. Schema: [{"name":"Task name","duration":30"}].
-          Rules: full names, integer minutes, no duplicates, output a valid JSON array.
+      <div id="json" class="tab-content" style="display:none">
+        <h3>📄 JSON Import using AI</h3>
+        <p>How to import task lists from AI tools like ChatGPT or Gemini:</p>
+        <ol style="margin:8px 0 12px;padding-left:20px">
+          <li>Open any AI tool (ChatGPT, Gemini, Claude, etc)</li>
+          <li>Copy the prompt below and paste it into the AI</li>
+          <li>When AI returns results, copy only the JSON array — from first [ to final ]</li>
+          <li>Paste that JSON into the box below and click Import Tasks</li>
+        </ol>
+        <div class="example" style="margin-bottom:12px">Copy and paste this prompt in any AI tool:<br><br>
+          <strong>Generate a JSON array of tasks for my day. Each item must be an object with exactly two fields: "name" (short task title, no newlines) and "duration" (integer minutes between 5 and 240). Output only valid JSON — no explanation, no markdown, no extra text. Return 6–10 tasks. Example: {"name":"Email review","duration":15}.</strong>
         </div>
-        <div class="example">[{"name":"Email review","duration":15},{"name":"Project meeting","duration":30},{"name":"Code review","duration":45}]</div>
-        <label for="jsonInput">Paste JSON:</label>
-        <textarea id="jsonInput" class="bulk-input" placeholder='[{"name":"Email review","duration":15},{"name":"Project meeting","duration":30}]'></textarea>
-        <button onclick="parseJsonTasks()">Import Tasks</button>
+        <label for="jsonInput">Paste AI JSON here:</label>
+        <textarea id="jsonInput" rows="6" style="min-height: 180px; width: 100%;" placeholder='[
+  {
+    "name": "Email review",
+    "duration": 15
+  },
+  {
+    "name": "Project meeting", 
+    "duration": 30
+  },
+  {
+    "name": "Code review",
+    "duration": 45
+  }
+]'></textarea>
+        <div style="margin-top:8px"><button class="btn-line" onclick="parseJsonTasks()">Import Tasks</button></div>
       </div>
     </div>
 
     <!-- Timer Controls -->
-    <div class="card timer-controls">
-      <button onclick="startTimer()" id="startBtn">▶️ Start</button>
-      <button onclick="pauseTimer()" id="pauseBtn">⏸️ Pause</button>
-      <button onclick="stopTimer()" id="stopBtn">⏹️ Stop</button>
-      <button onclick="skipTask()" id="skipBtn">⏭️ Next Task</button>
-      <button onclick="previousTask()" id="prevBtn">⏮️ Previous</button>
+    <div class="card">
+      <div class="controls-grid">
+        <button onclick="startTimer()" id="startBtn">▶ Start</button>
+        <button onclick="pauseTimer()" id="pauseBtn" class="btn-info">⏸ Pause</button>
+        <button onclick="stopTimer()" id="stopBtn" class="btn-danger">⏹ Stop</button>
+        <button onclick="skipTask()" id="skipBtn" class="btn-warning">⏭ Next</button>
+        <button onclick="previousTask()" id="prevBtn" class="btn-line">⏮ Prev</button>
+      </div>
       <div class="time-adjustments">
-        <button onclick="removeOneMinute()" id="removeMinBtn">-1 Min</button>
-        <button onclick="addOneMinute()" id="addMinBtn">+1 Min</button>
-        <button onclick="removeFiveMinutes()" id="removeFiveMinBtn">-5 Min</button>
-        <button onclick="addFiveMinutes()" id="addFiveMinBtn">+5 Min</button>
+        <button onclick="removeOneMinute()" id="removeMinBtn" class="btn-line">−1m</button>
+        <button onclick="addOneMinute()" id="addMinBtn" class="btn-line">+1m</button>
+        <button onclick="removeFiveMinutes()" id="removeFiveMinBtn" class="btn-line">−5m</button>
+        <button onclick="addFiveMinutes()" id="addFiveMinBtn" class="btn-line">+5m</button>
       </div>
     </div>
 
     <!-- Task Queue -->
     <div class="card">
-      <h3>⚡ Task Queue</h3>
+      <h3 style="margin:0 0 6px">⚡ Task Queue</h3>
       <div class="progress-bar"><div class="progress" id="overallProgress" style="width:0%"></div></div>
       <div id="taskList" class="task-list">
-        <p style="text-align:center;color:#666;font-style:italic;padding:20px;">No tasks added yet. Add some tasks above to start your productivity journey!</p>
+        <p style="text-align:center;color:#6b7280;font-style:italic;padding:10px">Add a task to get moving.</p>
       </div>
-      <button onclick="clearAllTasks()" style="margin-top:12px;background:#e74c3c;">Clear All Tasks</button>
+      <div style="display:flex;justify-content:flex-end;margin-top:6px">
+        <button onclick="clearAllTasks()" class="btn-danger">Clear All</button>
+      </div>
     </div>
 
-    <!-- Personal Brand (Duplicate) -->
-    <div class="personal-brand">
-      <h4>Created by Ashish Puri</h4>
-      <p>Entrepreneur & Productivity Enthusiast — building free websites, tools, and timers that make deep work easier.</p>
-      <div class="social-links">
-        <a href="https://www.instagram.com/_ashish_puri/" target="_blank">📱 Instagram</a>
-        <a href="https://x.com/_ashish_puri" target="_blank">🐦 Twitter/X</a>
-        <a href="https://t.me/ashish_puri" target="_blank">💬 Telegram</a>
-        <a href="https://www.facebook.com/ashishpurii" target="_blank">📘 Facebook</a>
-        <a href="https://www.twitch.tv/ashish_purii" target="_blank">🎮 Twitch</a>
-        <a href="https://github.com/ashish-purii" target="_blank">💻 GitHub</a>
-      </div>
+    <!-- Personal Brand & About -->
+    <!-- Personal Brand Sections -->
+    <div class="personal-brand" style="margin-top:20px; color: #fff; padding: 16px; background: rgba(255,255,255,.12); border: 1px solid rgba(255,255,255,.22); border-radius: 16px;">
+      <h3 style="color: #fff; margin-top: 0;">Read Below to Know What This Tool Is All About</h3>
+      <p style="margin:8px 0; color: rgba(255,255,255,.9);">This free timeboxing app helps you plan focused blocks, track sessions, and reach deep work. It's built for makers, students, and teams who want to work smarter, not harder.</p>
+    </div>
 
-      <!-- Donations: QR (UPI) + Donate Now link + other donation links in requested order -->
-      <div class="donation-block" aria-label="Donations">
+    <div class="personal-brand" style="margin-top:20px; color: #fff; padding: 16px; background: rgba(255,255,255,.12); border: 1px solid rgba(255,255,255,.22); border-radius: 16px;">
+      <h4 style="color: #fff; margin-top: 0;">Created by Ashish Puri</h4>
+      <p style="margin:8px 0; color: rgba(255,255,255,.9);">I build simple, free tools that help you stop procrastinating and start finishing. This timer is about turning intent into action — today, not "someday." Add your tasks and get after it.</p>
+      <div class="social-links">
+        <a href="https://www.instagram.com/_ashish_puri/" target="_blank" style="color: #fff; text-decoration: none; font-size: 14px; background: rgba(255,255,255,.16); padding: 8px 12px; border-radius: 999px;">📱 Instagram</a>
+        <a href="https://x.com/_ashish_puri" target="_blank" style="color: #fff; text-decoration: none; font-size: 14px; background: rgba(255,255,255,.16); padding: 8px 12px; border-radius: 999px;">🐦 X</a>
+        <a href="https://t.me/ashish_puri" target="_blank" style="color: #fff; text-decoration: none; font-size: 14px; background: rgba(255,255,255,.16); padding: 8px 12px; border-radius: 999px;">💬 Telegram</a>
+        <a href="https://www.facebook.com/ashishpurii" target="_blank" style="color: #fff; text-decoration: none; font-size: 14px; background: rgba(255,255,255,.16); padding: 8px 12px; border-radius: 999px;">📘 Facebook</a>
+        <a href="https://www.twitch.tv/ashish_purii" target="_blank" style="color: #fff; text-decoration: none; font-size: 14px; background: rgba(255,255,255,.16); padding: 8px 12px; border-radius: 999px;">🎮 Twitch</a>
+        <a href="https://github.com/ashish-purii" target="_blank" style="color: #fff; text-decoration: none; font-size: 14px; background: rgba(255,255,255,.16); padding: 8px 12px; border-radius: 999px;">💻 GitHub</a>
+      </div>
+    </div>
+
+    <div class="personal-brand" style="margin-top:20px; color: #fff; padding: 16px; background: rgba(255,255,255,.12); border: 1px solid rgba(255,255,255,.22); border-radius: 16px;">
+      <h4 style="color: #fff; margin-top: 0;">If this helps you win — consider supporting</h4>
+      <p style="margin:8px 0; color: rgba(255,255,255,.9);">I'm on your side. If this timer helps you become the stronger, sharper version of yourself, fuel the mission. Any amount keeps the lights on and the tools coming.</p>
+      <div class="donation-block" aria-label="Donations" style="display:flex; flex-wrap:wrap; gap:12px; align-items:center; justify-content:center; margin-top:8px;">
         <a href="upi://pay?pa=ashishthevisionary@ybl&pn=Ashish%20&tn=Any%20amount&cu=INR" target="_blank" rel="noopener noreferrer" title="Open UPI app to donate">
-          <img src="https://res.cloudinary.com/ddzfmdjaj/image/upload/v1754922021/New_Project_13_jwc3ua.png" alt="UPI QR / Donate QR">
+          <img src="https://res.cloudinary.com/ddzfmdjaj/image/upload/v1754922021/New_Project_13_jwc3ua.png" alt="UPI QR / Donate QR" style="width:144px; height:144px; object-fit:contain; background:#fff; border-radius:10px; border:1px solid rgba(0,0,0,.06); padding:6px">
         </a>
-        <div class="donation-links" role="group" aria-label="Donation links">
-          <a href="upi://pay?pa=ashishthevisionary@ybl&pn=Ashish%20&tn=Any%20amount&cu=INR" class="donate-link" title="Donate via UPI (open on mobile)">Donate Now (UPI)</a>
-          <a href="https://buymeacoffee.com/ashishpuri" class="donation-small small" title="Buy Me a Coffee" target="_blank" rel="noopener noreferrer">Buy Me a Coffee</a>
-          <a href="https://razorpay.me/@ashishthevisionary" class="donation-small small" title="Razorpay" target="_blank" rel="noopener noreferrer">Razorpay</a>
-          <a href="https://www.patreon.com/c/ashishpuri/" class="donation-small small" title="Patreon" target="_blank" rel="noopener noreferrer">Patreon</a>
+        <div class="donation-links" role="group" aria-label="Donation links" style="display:flex; flex-direction:column; gap:8px; align-items:center;">
+          <a href="upi://pay?pa=ashishthevisionary@ybl&pn=Ashish%20&tn=Any%20amount&cu=INR" class="donate-link" title="Donate via UPI (open on mobile)" style="background:linear-gradient(135deg,#f59e0b,#ef4444)!important; color:#fff!important; padding:10px 16px!important; border-radius:999px!important; font-weight:800!important; text-decoration:none">Donate Now (UPI)</a>
+          <a href="https://buymeacoffee.com/ashishpuri" class="small" target="_blank" rel="noopener noreferrer" style="background:#fff; color:#111827; border:1px solid #e5e7eb; border-radius:10px; padding:8px 12px; text-decoration:none; font-weight:700; font-size:14px">Buy Me a Coffee</a>
+          <a href="https://razorpay.me/@ashishthevisionary" class="small" target="_blank" rel="noopener noreferrer" style="background:#fff; color:#111827; border:1px solid #e5e7eb; border-radius:10px; padding:8px 12px; text-decoration:none; font-weight:700; font-size:14px">Razorpay</a>
+          <a href="https://www.patreon.com/c/ashishpuri/" class="small" target="_blank" rel="noopener noreferrer" style="background:#fff; color:#111827; border:1px solid #e5e7eb; border-radius:10px; padding:8px 12px; text-decoration:none; font-weight:700; font-size:14px">Patreon</a>
         </div>
       </div>
     </div>
 
-    <!-- Content for SEO (Why, How, Story) -->
-    <section class="content" id="why-timeboxing">
-      <h2>Why Timeboxing Works</h2>
-      <p>Timeboxing is a simple, powerful system: schedule your work into finite blocks, then show up and execute. It reduces decision fatigue, protects focus, and creates momentum. When you turn vague intentions into concrete blocks, you stop debating and start doing.</p>
-
-      <h3>Used by the Top 1%</h3>
-      <p>Time blocking and timeboxing aren't just productivity buzzwords — they're the backbone of how many high performers structure their days. People in the top 1% of productivity and impact (founders, CEOs, elite researchers, athletes, and creators) use similar patterns to protect deep work and make high-leverage decisions.</p>
-      <p>Examples often mentioned in business and productivity circles include:</p>
+    <!-- Motivational Intro -->
+    <section class="content" id="intro-timeboxing">
+      <h2>What Is Timeboxing?</h2>
+      <p>Imagine a surgeon in the operating room. Every second counts. Every move is deliberate. There's no room for drift, no "I'll get to it later." That's how the world's most productive leaders treat their day. They don't just work — they operate with surgical precision.</p>
+      <p>This is timeboxing: the art of giving every task a defined window, every minute a mission. It's not about working longer — it's about working sharper.</p>
+      <p>Think of Elon Musk juggling rockets, cars, AI, and infrastructure. He doesn't let tasks sprawl aimlessly. He locks them into focused blocks, protects those blocks like a fortress, and executes with intensity until the clock runs out. That's why his output looks superhuman — it's built on discipline, not chaos.</p>
+      <h3>Why Top Performers Use This Method</h3>
       <ul>
-        <li><strong>Elon Musk</strong> — known for breaking his calendar into short, tightly scheduled blocks to juggle engineering, product decisions, and meetings.</li>
-        <li><strong>Bill Gates</strong> — famously carves out long "think" periods (like his 'think weeks') for uninterrupted reading and reflection.</li>
-        <li><strong>Jeff Bezos</strong> — uses highly structured meeting formats and strict calendar control to prioritize decisions and free up cognitive bandwidth.</li>
-        <li><strong>Cal Newport</strong> — computer scientist and author of <em>Deep Work</em>, who prescribes lengthy, protected blocks of concentrated effort for producing high-quality work.</li>
-        <li><strong>Naval Ravikant</strong> — emphasizes batching, routine, and scheduling to amplify focus on high-impact tasks.</li>
+        <li><strong>Parkinson's Law mastery</strong> — Work expands to fill the time you give it. Timeboxing starves waste and forces speed.</li>
+        <li><strong>Decision fatigue elimination</strong> — You pre-decide when and for how long, removing daily choice paralysis.</li>
+        <li><strong>Progress visibility</strong> — You see your wins stack up block by block, building momentum like a snowball.</li>
+        <li><strong>Deep work activation</strong> — One task. One block. Zero distractions.</li>
       </ul>
-      <p>These examples show principle, not prescription: copy the discipline and structure, not the exact minute-by-minute schedule. The top performers win because they protect time for concentrated work and remove low-value interruptions.</p>
-
-      <h3>The Science Behind It</h3>
+      <h3>Three Ways to Load Your Tasks and actually use it</h3>
       <ul>
-        <li><strong>Parkinson’s Law</strong>: Work expands to fill the time available. Short blocks create helpful pressure.</li>
-        <li><strong>Flow State</strong>: Focused intervals increase the chance of flow and reduce distractions.</li>
-        <li><strong>Implementation Intentions</strong>: Pre-committing when and where improves follow-through.</li>
-        <li><strong>Feedback Loops</strong>: Visible progress bars and session analytics reinforce habits.</li>
+        <li><strong>Manual entry</strong> — Add tasks individually with precise time allocations when you want tight control.</li>
+        <li><strong>Bulk paste</strong> — Paste one task per line or separate tasks with a dash. Put minutes after each dash (e.g. Write intro - 20), then click "Add Tasks." Fast and practical for quick planning.</li>
+        <li><strong>JSON import</strong> — Use any AI planner to produce a ready-to-import JSON array. See the JSON tab for a simple prompt and copy/paste instructions so even non-technical users can import task lists instantly.</li>
       </ul>
-
-      <h3>How This Free Tool Helps</h3>
-      <ul>
-        <li>Timeboxing timer + task queue with quick +/-1 and +/-5 minute adjustments</li>
-        <li>Progress bar and totals to make momentum visible</li>
-        <li>Cross-platform PWA (web, mobile, desktop), offline capable, no sign-up</li>
-        <li>Open source: privacy-first and community-driven improvements</li>
-      </ul>
+      <h3>The Mindset Shift</h3>
+      <p>Timeboxing isn't just a productivity tool — it's a training ground for mental toughness. When you learn to finish inside the walls of a time block, you train the same self-control elite performers rely on in high-stakes situations. You'll move faster, make cleaner decisions, and feel in control of your time again.</p>
     </section>
 
-    <!-- Personal Brand -->
-    <div class="personal-brand">
-      <h4>Created by Ashish Puri</h4>
-      <p>Entrepreneur & Productivity Enthusiast — building free websites, tools, and timers that make deep work easier.</p>
-      <div class="social-links">
-        <a href="https://www.instagram.com/_ashish_puri/" target="_blank">📱 Instagram</a>
-        <a href="https://x.com/_ashish_puri" target="_blank">🐦 Twitter/X</a>
-        <a href="https://t.me/ashish_puri" target="_blank">💬 Telegram</a>
-        <a href="https://www.facebook.com/ashishpurii" target="_blank">📘 Facebook</a>
-        <a href="https://www.twitch.tv/ashish_purii" target="_blank">🎮 Twitch</a>
-        <a href="https://github.com/ashish-purii" target="_blank">💻 GitHub</a>
-      </div>
-
-      <!-- Donations: QR (UPI) + Donate Now link + other donation links in requested order -->
-      <div class="donation-block" aria-label="Donations">
-        <a href="upi://pay?pa=ashishthevisionary@ybl&pn=Ashish%20&tn=Any%20amount&cu=INR" target="_blank" rel="noopener noreferrer" title="Open UPI app to donate">
-          <img src="https://res.cloudinary.com/ddzfmdjaj/image/upload/v1754922021/New_Project_13_jwc3ua.png" alt="UPI QR / Donate QR">
-        </a>
-        <div class="donation-links" role="group" aria-label="Donation links">
-          <a href="upi://pay?pa=ashishthevisionary@ybl&pn=Ashish%20&tn=Any%20amount&cu=INR" class="donate-link" title="Donate via UPI (open on mobile)">Donate Now (UPI)</a>
-          <a href="https://buymeacoffee.com/ashishpuri" class="donation-small small" title="Buy Me a Coffee" target="_blank" rel="noopener noreferrer">Buy Me a Coffee</a>
-          <a href="https://razorpay.me/@ashishthevisionary" class="donation-small small" title="Razorpay" target="_blank" rel="noopener noreferrer">Razorpay</a>
-          <a href="https://www.patreon.com/c/ashishpuri/" class="donation-small small" title="Patreon" target="_blank" rel="noopener noreferrer">Patreon</a>
-        </div>
-      </div>
-    </div>
-
-    <!-- Floating Credit -->
-    <div class="floating-credit" onclick="window.open('https://coinsend.to/@ashishpuri','_blank')">
-      ⭐ Made by Ashish Puri
-    </div>
 
     <!-- Warning Popup -->
-    <div id="warningPopup" class="warning-popup">
-      <h3>⚠️ Task Almost Complete!</h3>
-      <p>Only <span id="warningTime">20</span> seconds remaining</p>
+    <div id="warningPopup" class="warning-popup" role="dialog" aria-live="assertive">
+      <h3>⚠ Task almost complete</h3>
+      <p>Only <span id="warningTime">20</span> seconds left</p>
       <div class="warning-controls">
-        <button onclick="addOneMinute()" class="btn-success btn-small">+1 Min</button>
-        <input type="number" id="customTime" class="time-input" placeholder="5" min="1">
-        <button onclick="addCustomTime()" class="btn-info btn-small">Add Time</button>
-        <button onclick="skipTask()" class="btn-warning btn-small">Next Task</button>
-        <button onclick="dismissWarning()" class="btn-danger btn-small">Continue</button>
+        <button onclick="addOneMinute()" class="btn-success">+1m</button>
+        <input type="number" id="customTime" class="time-input" placeholder="Custom m" min="1">
+        <button onclick="addCustomTime()" class="btn-info">Add</button>
+        <button onclick="dismissWarning()" class="btn-line">Hide</button>
+      </div>
+      <div style="margin-top:8px;display:flex;gap:8px">
+        <button onclick="skipTask()" class="btn-warning" style="flex:1">Next Task</button>
+        <button onclick="stopTimer()" class="btn-danger" style="flex:1">Stop</button>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Combined Creator and Donation Section -->
+  <div class="personal-brand" style="margin-top:20px; color: #fff; padding: 16px; background: rgba(255,255,255,.12); border: 1px solid rgba(255,255,255,.22); border-radius: 16px;">
+    <h3 style="color: #fff; margin-top: 0;">Created by Ashish Puri</h3>
+    <p style="margin:8px 0; color: rgba(255,255,255,.9);">I build simple, free tools that help you stop procrastinating and start finishing. This timer is about turning intent into action — today, not "someday." Add your tasks and get after it.</p>
+    
+    <div class="social-links">
+      <a href="https://www.instagram.com/_ashish_puri/" target="_blank">📱 Instagram</a>
+      <a href="https://x.com/_ashish_puri" target="_blank">🐦 X</a>
+      <a href="https://t.me/ashish_puri" target="_blank">💬 Telegram</a>
+      <a href="https://www.facebook.com/ashishpurii" target="_blank">📘 Facebook</a>
+      <a href="https://www.twitch.tv/ashish_purii" target="_blank">🎮 Twitch</a>
+      <a href="https://github.com/ashish-purii" target="_blank">💻 GitHub</a>
+    </div>
+
+    <h4 style="color: #fff; margin: 16px 0 0;">If this helps you win — consider supporting</h4>
+    <p style="margin:8px 0; color: rgba(255,255,255,.9);">I'm on your side. If this timer helps you become the stronger, sharper version of yourself, fuel the mission. Any amount keeps the lights on and the tools coming.</p>
+    
+    <div class="donation-block" aria-label="Donations" style="display:flex; flex-wrap:wrap; gap:12px; align-items:center; justify-content:center; margin-top:8px;">
+      <a href="upi://pay?pa=ashishthevisionary@ybl&pn=Ashish%20&tn=Any%20amount&cu=INR" target="_blank" rel="noopener noreferrer" title="Open UPI app to donate">
+        <img src="https://res.cloudinary.com/ddzfmdjaj/image/upload/v1754922021/New_Project_13_jwc3ua.png" alt="UPI QR / Donate QR" style="width:144px; height:144px; object-fit:contain; background:#fff; border-radius:10px; border:1px solid rgba(0,0,0,.06); padding:6px">
+      </a>
+      <div class="donation-links" role="group" aria-label="Donation links" style="display:flex; flex-direction:column; gap:8px; align-items:center;">
+        <a href="upi://pay?pa=ashishthevisionary@ybl&pn=Ashish%20&tn=Any%20amount&cu=INR" class="donate-link" title="Donate via UPI (open on mobile)" style="background:linear-gradient(135deg,#f59e0b,#ef4444)!important; color:#fff!important; padding:10px 16px!important; border-radius:999px!important; font-weight:800!important; text-decoration:none">Donate Now (UPI)</a>
+        <a href="https://buymeacoffee.com/ashishpuri" class="small" target="_blank" rel="noopener noreferrer" style="background:#fff; color:#111827; border:1px solid #e5e7eb; border-radius:10px; padding:8px 12px; text-decoration:none; font-weight:700; font-size:14px">Buy Me a Coffee</a>
+        <a href="https://razorpay.me/@ashishthevisionary" class="small" target="_blank" rel="noopener noreferrer" style="background:#fff; color:#111827; border:1px solid #e5e7eb; border-radius:10px; padding:8px 12px; text-decoration:none; font-weight:700; font-size:14px">Razorpay</a>
+        <a href="https://www.patreon.com/c/ashishpuri/" class="small" target="_blank" rel="noopener noreferrer" style="background:#fff; color:#111827; border:1px solid #e5e7eb; border-radius:10px; padding:8px 12px; text-decoration:none; font-weight:700; font-size:14px">Patreon</a>
       </div>
     </div>
   </div>
 
-  <!-- Scripts -->
   <script>
+    // One-click: copy entire HTML document
+    document.querySelector('.copy-all').addEventListener('click', async () => {
+      try{
+        const html = '<!DOCTYPE html>\n' + document.documentElement.outerHTML;
+        if(navigator.clipboard && window.isSecureContext){
+          await navigator.clipboard.writeText(html);
+        }else{
+          const ta = document.createElement('textarea');
+          ta.value = html;
+          document.body.appendChild(ta);
+          ta.select();
+          ta.setSelectionRange(0, html.length);
+          document.execCommand('copy');
+          ta.remove();
+        }
+        const btn = document.querySelector('.copy-all');
+        const original = btn.innerHTML;
+        btn.innerHTML = '✓';
+        setTimeout(()=>btn.innerHTML = original, 1000);
+      }catch(e){
+        alert('Copy failed. Long-press/select all as fallback.');
+      }
+    });
+
+    // App state
     let tasks = [];
     let currentTaskIndex = 0;
     let timer = null;
@@ -371,22 +363,60 @@
     let totalTime = 0;
     let elapsedTime = 0;
     let warningShown = false;
+    let expandedTaskIndex = -1;
 
+    // Click outside handler
+    document.addEventListener('click', (e) => {
+      const clickedTask = e.target.closest('.task-item');
+      if (!clickedTask && expandedTaskIndex !== -1) {
+        expandedTaskIndex = -1;
+        updateTaskDisplay();
+      }
+    });
+
+    // Tabs
     function switchTab(tabName, evt){
-      document.querySelectorAll('.tab-content').forEach(c=>c.classList.remove('active'));
+      document.querySelectorAll('.tab-content').forEach(c=>c.style.display='none');
       document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
-      document.getElementById(tabName).classList.add('active');
+      const el = document.getElementById(tabName);
+      if(el) el.style.display='block';
       if(evt) evt.target.classList.add('active');
     }
 
+    function sanitize(str){return String(str).replace(/</g,'&lt;')}
+
+    function formatTime(sec){
+      sec = Math.max(0, Math.floor(sec));
+      if(sec>=3600){
+        const h = Math.floor(sec/3600);
+        const m = Math.floor((sec%3600)/60).toString().padStart(2,'0');
+        const s = (sec%60).toString().padStart(2,'0');
+        return `${h}:${m}:${s}`;
+      }else{
+        const m = Math.floor(sec/60);
+        const s = (sec%60).toString().padStart(2,'0');
+        return `${m}:${s}`;
+      }
+    }
+
+    // Task expansion
+    function toggleTaskExpansion(index, event) {
+      event.stopPropagation();
+      expandedTaskIndex = expandedTaskIndex === index ? -1 : index;
+      updateTaskDisplay();
+    }
+
+    // Adders
     function addTask(){
       const name = document.getElementById('taskName').value.trim();
-      const minutes = parseInt(document.getElementById('taskTime').value, 10);
-      if(!name || !minutes || minutes<=0){ alert('Please enter a valid task name and duration.'); return; }
-      tasks.push({ name, duration: minutes*60, completed:false });
+      const minutes = parseInt(document.getElementById('taskTime').value,10);
+      if(!name || !minutes || minutes<=0){ alert('Enter a task and minutes > 0'); return; }
+      tasks.unshift({ name, duration: minutes*60, completed:false });
       document.getElementById('taskName').value='';
       document.getElementById('taskTime').value='';
-      updateTaskDisplay(); calculateTotalTime();
+      currentTaskIndex = 0;
+      timeRemaining = tasks[currentTaskIndex].duration;
+      recalcAndRender();
     }
 
     function parseBulkTasks(){
@@ -395,7 +425,11 @@
       const lines = bulkText.split('\n');
       let added = 0;
       lines.forEach(line=>{
-        const m = line.trim().match(/^(.+?)\s*-\s*(\d+)$/);
+        const trimmed = line.trim();
+        if(!trimmed) return;
+        
+        // Try both formats: "Task - 25" and "Task 25"
+        const m = trimmed.match(/^(.+?)\s*[-–]\s*(\d+)$/) || trimmed.match(/^(.+?)\s+(\d+)$/);
         if(m){
           const name = m[1].trim();
           const minutes = parseInt(m[2],10);
@@ -406,8 +440,8 @@
         }
       });
       document.getElementById('bulkInput').value='';
-      updateTaskDisplay(); calculateTotalTime();
-      alert(added>0 ? `Successfully added ${added} tasks!` : 'No valid tasks found. Please use "Task name - minutes".');
+      recalcAndRender();
+      alert(added>0 ? `Successfully added ${added} tasks!` : 'No valid tasks found. Use format like "Task - 25" or "Task 25"');
     }
 
     function parseJsonTasks(){
@@ -418,82 +452,88 @@
         let added = 0;
         if(Array.isArray(jsonTasks)){
           jsonTasks.forEach(t=>{
-            if(t.name && Number.isFinite(t.duration) && t.duration>0){
-              tasks.push({ name: t.name, duration: t.duration*60, completed:false });
+            const dur = Number(t.duration);
+            if(t && t.name && Number.isFinite(dur) && dur>0){
+              tasks.push({ name: String(t.name), duration: Math.floor(dur)*60, completed:false });
               added++;
             }
           });
         }
         document.getElementById('jsonInput').value='';
-        updateTaskDisplay(); calculateTotalTime();
-        alert(added>0 ? `Successfully imported ${added} tasks!` : 'No valid tasks found in JSON.');
+        recalcAndRender();
+        alert(added>0 ? `Successfully imported ${added} tasks!` : 'No valid tasks in JSON.');
       }catch(e){ alert('Invalid JSON format.'); }
     }
 
+    // Progress
     function calculateTotalTime(){
       totalTime = tasks.reduce((s,t)=>s+t.duration,0);
       elapsedTime = 0;
-      for(let i=0;i<currentTaskIndex;i++){ if(tasks[i].completed){ elapsedTime += tasks[i].duration; } }
-      updateProgress();
+      for(let i=0;i<tasks.length;i++){
+        if(tasks[i]?.completed) elapsedTime += tasks[i].duration;
+      }
     }
 
     function updateProgress(){
       const currentElapsed = (tasks[currentTaskIndex] ? (tasks[currentTaskIndex].duration - timeRemaining) : 0);
-      const percent = totalTime>0 ? ((elapsedTime + currentElapsed) / totalTime) * 100 : 0;
-      document.getElementById('overallProgress').style.width = Math.min(100, Math.max(0, percent)) + '%';
+      const percent = totalTime>0 ? ((elapsedTime + Math.max(0,currentElapsed)) / totalTime) * 100 : 0;
+      document.getElementById('overallProgress').style.width = `${Math.min(100, Math.max(0, percent))}%`;
     }
 
-    function formatTime(sec){
-      if(sec>=3600){
-        const h = Math.floor(sec/3600);
-        const m = Math.floor((sec%3600)/60).toString().padStart(2,'0');
-        const s = (sec%60).toString().padStart(2,'0');
-        return `${h}:${m}:${s}`;
-      } else {
-        const m = Math.floor(sec/60);
-        const s = (sec%60).toString().padStart(2,'0');
-        return `${m}:${s}`;
-      }
-    }
-
+    // Rendering
     function updateTaskDisplay(){
       const list = document.getElementById('taskList');
       if(tasks.length===0){
-        list.innerHTML = '<p style="text-align:center;color:#666;font-style:italic;padding:20px;">No tasks added yet. Add some tasks above to start your productivity journey!</p>';
+        list.innerHTML = '<p style="text-align:center;color:#6b7280;font-style:italic;padding:10px">Add a task to get moving.</p>';
         return;
       }
       list.innerHTML = tasks.map((task, i)=>{
         const isActive = i===currentTaskIndex;
+        const isExpanded = i===expandedTaskIndex;
         let cls = '';
-        let icon = '⏹️';
+        let icon = '⏹';
         let display = formatTime(task.duration);
         if(isActive){
           cls = timer ? 'active' : (isPaused ? 'paused' : 'active');
-          icon = timer ? '▶️' : (isPaused ? '⏸️' : '⏹️');
+          icon = timer ? '▶' : (isPaused ? '⏸' : '⏹');
           if(timeRemaining>0){ display = formatTime(timeRemaining); }
         }
         if(task.completed){ cls += ' completed'; }
+        if(isExpanded){ cls += ' expanded'; }
+        
+        const taskNameClass = isExpanded ? 'task-name expanded' : 'task-name';
+        const timerDisplayClass = isExpanded ? 'timer-display expanded' : 'timer-display';
+        
         return `
-          <div class="task-item ${cls}">
+          <div class="task-item ${cls}" onclick="toggleTaskExpansion(${i}, event)">
             <div class="move-controls">
-              <button class="move-btn" onclick="moveTask(${i},-1)" ${i===0?'disabled':''}>▲</button>
-              <button class="move-btn" onclick="moveTask(${i},1)" ${i===tasks.length-1?'disabled':''}>▼</button>
+              <button class="move-btn" onclick="event.stopPropagation(); moveTask(${i},-1)" ${i===0?'disabled':''}>▲</button>
+              <button class="move-btn" onclick="event.stopPropagation(); moveTask(${i},1)" ${i===tasks.length-1?'disabled':''}>▼</button>
             </div>
             <div class="task-info">
-              <div class="task-name">${task.name.replace(/</g,'&lt;')}</div>
+              <div class="${taskNameClass}" title="${sanitize(task.name)}">${sanitize(task.name)}</div>
               <div class="task-time">Duration: ${formatTime(task.duration)}</div>
             </div>
-            <div class="timer-display">${icon} ${display}</div>
+            <div class="${timerDisplayClass}">${icon} ${display}</div>
             <div class="task-controls">
-              <button class="btn-small btn-danger" onclick="removeTask(${i})">Remove</button>
+              <button class="btn-danger" onclick="event.stopPropagation(); removeTask(${i})">Remove</button>
             </div>
           </div>
         `;
       }).join('');
     }
 
+    function recalcAndRender(){
+      if(currentTaskIndex>=tasks.length){ currentTaskIndex = Math.max(0, tasks.length-1); }
+      if(tasks.length && !timeRemaining){ timeRemaining = tasks[currentTaskIndex].duration; }
+      calculateTotalTime();
+      updateTaskDisplay();
+      updateProgress();
+    }
+
+    // Controls
     function startTimer(){
-      if(tasks.length===0){ alert('Please add some tasks first!'); return; }
+      if(tasks.length===0){ alert('Add some tasks first!'); return; }
       if(currentTaskIndex>=tasks.length){ currentTaskIndex=0; tasks.forEach(t=>t.completed=false); elapsedTime=0; }
       if(!timeRemaining) timeRemaining = tasks[currentTaskIndex].duration;
       if(timer) return;
@@ -502,7 +542,8 @@
         if(timeRemaining>0){
           timeRemaining--;
           if(timeRemaining===20 && !warningShown){ showWarning(); warningShown=true; }
-          updateTaskDisplay(); updateProgress();
+          updateTaskDisplay();
+          updateProgress();
         } else {
           clearInterval(timer); timer=null; completeCurrentTask();
         }
@@ -524,23 +565,24 @@
       if(timer){ clearInterval(timer); timer=null; }
       tasks[currentTaskIndex].completed = true;
       elapsedTime += tasks[currentTaskIndex].duration;
-      currentTaskIndex++; warningShown=false; dismissWarning();
-      if(currentTaskIndex<tasks.length){
-        timeRemaining = tasks[currentTaskIndex].duration;
-        setTimeout(()=>startTimer(), 400);
-      } else { timeRemaining=0; }
-      calculateTotalTime(); updateTaskDisplay();
+      currentTaskIndex++;
+      warningShown=false; dismissWarning();
+      if(currentTaskIndex<tasks.length){ timeRemaining = tasks[currentTaskIndex].duration; setTimeout(()=>startTimer(), 350); } else { timeRemaining=0; }
+      calculateTotalTime();
+      updateTaskDisplay();
     }
 
     function previousTask(){
       if(currentTaskIndex<=0){ alert('Already at the first task!'); return; }
       if(timer){ clearInterval(timer); timer=null; }
       currentTaskIndex--; tasks[currentTaskIndex].completed=false;
-      timeRemaining = tasks[currentTaskIndex].duration; warningShown=false; dismissWarning(); isPaused=false;
-      setTimeout(()=>startTimer(), 400);
+      timeRemaining = tasks[currentTaskIndex].duration;
+      warningShown=false; dismissWarning(); isPaused=false;
+      setTimeout(()=>startTimer(), 350);
       calculateTotalTime(); updateTaskDisplay();
     }
 
+    // Task ops
     function moveTask(index, dir){
       const newIndex = index + dir;
       if(newIndex>=0 && newIndex<tasks.length){
@@ -554,37 +596,61 @@
     function removeTask(index){
       if(index===currentTaskIndex && timer){ stopTimer(); }
       tasks.splice(index,1);
-      if(currentTaskIndex>=tasks.length){ currentTaskIndex=0; }
-      updateTaskDisplay(); calculateTotalTime();
+      if(currentTaskIndex>=tasks.length){ currentTaskIndex=Math.max(0,tasks.length-1); }
+      if(tasks.length===0){ timeRemaining=0; }
+      if(expandedTaskIndex===index){ expandedTaskIndex=-1; }
+      else if(expandedTaskIndex>index){ expandedTaskIndex--; }
+      recalcAndRender();
     }
 
     function clearAllTasks(){
-      if(tasks.length===0){ alert('No tasks to remove!'); return; }
-      if(confirm('Are you sure you want to remove all tasks?')){
+      if(tasks.length===0){ alert('No tasks to remove.'); return; }
+      if(confirm('Remove all tasks?')){
         if(timer){ clearInterval(timer); timer=null; }
-        tasks.length=0; currentTaskIndex=0; timeRemaining=0; totalTime=0; elapsedTime=0; isPaused=false; warningShown=false;
-        dismissWarning(); updateTaskDisplay(); updateProgress();
+        tasks.length=0; currentTaskIndex=0; timeRemaining=0; totalTime=0; elapsedTime=0; isPaused=false; warningShown=false; expandedTaskIndex=-1; dismissWarning();
+        updateTaskDisplay(); updateProgress();
       }
     }
 
-    function addOneMinute(){ if(currentTaskIndex<tasks.length){ tasks[currentTaskIndex].duration+=60; timeRemaining+=60; totalTime+=60; warningShown=false; dismissWarning(); updateTaskDisplay(); updateProgress(); } }
-    function removeOneMinute(){ if(currentTaskIndex<tasks.length && timeRemaining>60){ tasks[currentTaskIndex].duration-=60; timeRemaining-=60; totalTime-=60; warningShown=false; dismissWarning(); updateTaskDisplay(); updateProgress(); } }
-    function addFiveMinutes(){ if(currentTaskIndex<tasks.length){ tasks[currentTaskIndex].duration+=300; timeRemaining+=300; totalTime+=300; warningShown=false; dismissWarning(); updateTaskDisplay(); updateProgress(); } }
-    function removeFiveMinutes(){ if(currentTaskIndex<tasks.length && timeRemaining>300){ tasks[currentTaskIndex].duration-=300; timeRemaining-=300; totalTime-=300; warningShown=false; dismissWarning(); updateTaskDisplay(); updateProgress(); } }
+    // Time tweaks
+    function addOneMinute(){ adjustCurrent(60) }
+    function removeOneMinute(){ adjustCurrent(-60) }
+    function addFiveMinutes(){ adjustCurrent(300) }
+    function removeFiveMinutes(){ adjustCurrent(-300) }
+
+    function adjustCurrent(delta){
+      if(currentTaskIndex>=tasks.length) return;
+      const t = tasks[currentTaskIndex];
+      const newDur = Math.max(60, t.duration + delta);
+      const diff = newDur - t.duration;
+      t.duration = newDur;
+      timeRemaining = Math.max(0, timeRemaining + diff);
+      totalTime = Math.max(0, totalTime + diff);
+      warningShown=false; dismissWarning();
+      updateTaskDisplay(); updateProgress();
+    }
 
     function addCustomTime(){
       const custom = parseInt(document.getElementById('customTime').value,10);
       if(custom && custom>0 && currentTaskIndex<tasks.length){
         const add = custom*60;
         tasks[currentTaskIndex].duration += add;
-        timeRemaining += add; totalTime += add; warningShown=false; dismissWarning();
+        timeRemaining += add;
+        totalTime += add;
+        warningShown=false; dismissWarning();
         document.getElementById('customTime').value='';
         updateTaskDisplay(); updateProgress();
       }
     }
 
-    function showWarning(){ document.getElementById('warningTime').textContent = timeRemaining; document.getElementById('warningPopup').style.display='block'; }
+    // Warning
+    function showWarning(){
+      const wt = Math.max(0, timeRemaining);
+      document.getElementById('warningTime').textContent = wt;
+      document.getElementById('warningPopup').style.display='block';
+    }
     function dismissWarning(){ document.getElementById('warningPopup').style.display='none'; }
+
     function completeCurrentTask(){ skipTask(); }
 
     // Init
