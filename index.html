@@ -49,7 +49,15 @@
 
     /* Buttons */
     button{height:38px;padding:0 8px;font-size:13px;border:none;border-radius:8px;cursor:pointer;color:#fff;background:linear-gradient(135deg,var(--bg1),var(--bg2));display:inline-flex;align-items:center;justify-content:center;gap:4px;font-weight:700;box-shadow:0 4px 12px rgba(102,126,234,.28);transition:transform .12s ease}
-    @media(max-width:520px){button{height:32px;font-size:12px;padding:0 6px}}
+    @media(max-width:520px){
+      button{height:28px;font-size:11px;padding:0 4px}
+      .task-item{grid-template-columns:28px 1fr auto auto;gap:6px;padding:8px}
+      .task-name{font-size:12px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:calc(100vw - 160px)}
+      .task-time{font-size:10px}
+      .timer-display{font-size:12px;min-width:60px}
+      .task-controls .btn-danger{height:26px;padding:0 8px;font-size:11px}
+      .move-btn{height:16px;padding:0 3px;font-size:9px}
+    }
     button:hover{transform:translateY(-1px)}
     .btn-line{background:#eef2ff;color:#4338ca;border:1px solid #dbeafe}
     .btn-danger{background:#ef4444}
@@ -65,6 +73,9 @@
     /* Task list */
     .task-list{display:flex;flex-direction:column;gap:10px}
     .task-item{display:grid;align-items:center;grid-template-columns:34px 1fr auto auto;gap:10px;padding:10px;background:#fff;border-radius:12px;border:1px solid #e5e7eb;cursor:pointer;transition:all .2s ease}
+    @media(max-width:520px){
+      .task-item{grid-template-columns:28px 1fr auto auto;gap:6px;padding:8px}
+    }
     .task-item:hover{box-shadow:0 4px 12px rgba(0,0,0,.1)}
     .task-item.active{border-color:#10b981;background:#ecfdf5}
     .task-item.paused{border-color:#f59e0b;background:#fffbeb}
@@ -74,6 +85,9 @@
     .move-btn:disabled{opacity:.4}
     .task-info{min-width:0}
     .task-name{font-weight:800;font-size:14px;color:#111827;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;transition:all .2s ease}
+    @media(max-width:520px){
+      .task-name{font-size:12px;max-width:calc(100vw - 160px)}
+    }
     .task-name.expanded{white-space:normal;overflow:visible;text-overflow:unset;font-size:16px;line-height:1.4;color:#667eea}
     .task-time{font-size:12px;color:var(--muted)}
     .timer-display{font-family:ui-monospace,Menlo,Consolas,monospace;font-weight:800;color:#4338ca;min-width:78px;text-align:right;font-size:14px}
