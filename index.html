@@ -120,6 +120,105 @@
     .donation-links{display:flex;flex-direction:column;gap:8px;align-items:center}
     .donate-link{background:linear-gradient(135deg,#f59e0b,#ef4444)!important;color:#fff!important;padding:10px 16px!important;border-radius:999px!important;font-weight:800!important;text-decoration:none}
     .donation-links a{background:#fff;color:#111827;border:1px solid #e5e7eb;border-radius:10px;padding:8px 12px;text-decoration:none;font-weight:700;font-size:14px}
+
+    /*
+      =========================
+      MOBILE: Aggressive layout for Task Queue (≤520px)
+      - Show up to 2 lines of task name (so first line always visible)
+      - Prevent timer/remove from stealing horizontal space by placing them at bottom-right
+      - Reduce Remove button size and timer font
+      - Keep expanded view showing full name (no clamp)
+      =========================
+    */
+    @media (max-width:520px) {
+      /* compact the grid to icon + main content. right padding leaves room for absolute controls */
+      .task-item{
+        display:grid;
+        grid-template-columns:28px 1fr;
+        gap:8px;
+        padding:10px 112px 12px 8px; /* big right padding ensures absolute controls won't overlap text */
+        position:relative;
+        align-items:start;
+      }
+
+      /* keep move-controls visible but tiny so user can still reorder without losing space */
+      .move-controls{ display:flex; flex-direction:column; gap:4px; margin-right:4px; }
+      .move-btn{height:18px;padding:0 4px;font-size:10px;border-radius:6px}
+
+      /* allow two lines for task name, but clamp to avoid overflowing */
+      .task-name{
+        display:-webkit-box;
+        -webkit-line-clamp:2; /* show two lines on mobile preview */
+        -webkit-box-orient:vertical;
+        overflow:hidden;
+        white-space:normal;
+        font-size:13px;
+        line-height:1.12;
+        margin-right:4px;
+      }
+
+      /* expanded: remove clamp so full name appears */
+      .task-item.expanded .task-name,
+      .task-name.expanded {
+        -webkit-line-clamp:unset;
+        display:block;
+        white-space:normal;
+        overflow:visible;
+        font-size:15px;
+        line-height:1.28;
+      }
+
+      /* smaller duration line above the absolute controls so it doesn't clash */
+      .task-time{ font-size:11px; color:var(--muted); margin-top:6px; }
+
+      /* Position timer and Remove button at bottom-right; timer to left of Remove */
+      .timer-display{
+        position:absolute;
+        right:86px; /* sits left of Remove button */
+        bottom:8px;
+        font-size:12px !important;
+        min-width:56px;
+        text-align:center;
+        font-weight:800;
+        line-height:1;
+        background:rgba(59,130,246,0.08); /* subtle blue bg */
+        color:#1e40af;
+        padding:4px 8px;
+        border-radius:8px;
+        border:1px solid rgba(59,130,246,0.12);
+      }
+
+      .task-controls{
+        position:absolute;
+        right:8px;
+        bottom:8px;
+        display:flex;
+        gap:6px;
+        align-items:center;
+        z-index:2;
+      }
+
+      /* compact Remove button pill */
+      .task-controls .btn-danger{
+        height:26px;
+        padding:0 8px;
+        font-size:11px;
+        border-radius:10px;
+        line-height:1;
+        box-shadow: none;
+      }
+
+      /* Ensure expanded item gets more right padding so content doesn't collide with controls */
+      .task-item.expanded{
+        padding-right:18px;
+      }
+
+      /* make sure icons/controls inside the cell don't force overflow */
+      .task-info{ min-width:0; }
+
+      /* reduce any timer large font on collapsed state as well */
+      .timer-display.expanded{ font-size:13px; }
+    }
   </style>
 </head>
 <body>
@@ -135,12 +234,12 @@
     <!-- Hero -->
     <div class="hero-section">
       <h1>🚀 Free Timeboxing App — Time Blocking & Focus Timer</h1>
-      <p class="subtitle">Plan focused blocks, track sessions, and reach deep work with a free, open‑source timer built for makers, students, and teams.</p>
+      <p class="subtitle">Plan focused blocks, track sessions, and reach deep work with a free, open-source timer built for makers, students, and teams.</p>
       <div class="hero-stats">
         <div class="stat-item">✅ Free & Open Source</div>
         <div class="stat-item">📱 iPhone & Android</div>
         <div class="stat-item">💻 Desktop Friendly</div>
-        <div class="stat-item">🔒 Privacy‑first - No Sign‑up</div>
+        <div class="stat-item">🔒 Privacy-first - No Sign-up</div>
       </div>
     </div>
 
