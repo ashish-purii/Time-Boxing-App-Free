@@ -15,29 +15,10 @@
     body{ font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif; background:linear-gradient(135deg,var(--bg1) 0%,var(--bg2) 100%); color:var(--text); min-height:100vh; line-height:1.5; }
     .container{max-width:980px;margin:0 auto;padding:16px}
 
-    /* Creator Credit Button (fixed, top-left) */
-    .copy-all{ 
-      position:fixed; 
-      top:10px; 
-      left:10px; 
-      z-index:2000; 
-      min-width:38px; 
-      height:38px; 
-      padding:0 12px;
-      border-radius:10px; 
-      background:rgba(255,255,255,.95); 
-      border:1px solid rgba(0,0,0,.1); 
-      display:flex; 
-      align-items:center; 
-      justify-content:center; 
-      box-shadow:0 6px 16px rgba(0,0,0,.12); 
-      cursor:pointer; 
-      font-size:12px;
-      font-weight:600;
-      color:#374151;
-      white-space:nowrap;
-    }
+    /* Copy Entire Code button (fixed, top-left like canvas icon) */
+    .copy-all{ position:fixed; top:10px; left:10px; z-index:2000; width:38px; height:38px; border-radius:10px; background:rgba(255,255,255,.95); border:1px solid rgba(0,0,0,.1); display:flex; align-items:center; justify-content:center; box-shadow:0 6px 16px rgba(0,0,0,.12); cursor:pointer; }
     .copy-all:active{transform:scale(.98)}
+    .copy-all svg{width:20px;height:20px;stroke:#374151}
 
     /* Hero */
     .hero-section{text-align:center;color:#fff;margin:46px 0 20px}
@@ -56,27 +37,16 @@
 
     /* Inputs */
     .input-section{display:grid;grid-template-columns:1fr 1fr auto;gap:10px;align-items:end}
-    @media(max-width:640px){
-      .input-section{grid-template-columns:1fr; gap:8px}
-      .input-section button{width:100%; margin-top:4px}
-    }
+    @media(max-width:640px){.input-section{grid-template-columns:1fr 1fr}}
     .input-group{display:flex;flex-direction:column;gap:6px}
     label{font-weight:700;color:#374151;font-size:13px}
-    input,textarea{padding:10px 12px;border:1.5px solid #e5e7eb;border-radius:10px;font-size:14px;background:#fff;width:100%;box-sizing:border-box}
+    input,textarea{padding:10px 12px;border:1.5px solid #e5e7eb;border-radius:10px;font-size:14px;background:#fff}
     input:focus,textarea:focus{outline:none;border-color:var(--bg1);box-shadow:0 0 0 3px rgba(102,126,234,.15)}
     .example{font-size:12px;color:#6b7280;background:#f9fafb;border:1px dashed #e5e7eb;border-radius:10px;padding:8px;margin:6px 0}
 
     /* Buttons */
     button{height:38px;padding:0 8px;font-size:13px;border:none;border-radius:8px;cursor:pointer;color:#fff;background:linear-gradient(135deg,var(--bg1),var(--bg2));display:inline-flex;align-items:center;justify-content:center;gap:4px;font-weight:700;box-shadow:0 4px 12px rgba(102,126,234,.28);transition:transform .12s ease}
-    @media(max-width:520px){
-      button{height:28px;font-size:11px;padding:0 4px}
-      .task-item{grid-template-columns:28px 1fr auto auto;gap:6px;padding:8px}
-      .task-name{font-size:12px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:calc(100vw - 160px)}
-      .task-time{font-size:10px}
-      .timer-display{font-size:12px;min-width:60px}
-      .task-controls .btn-danger{height:26px;padding:0 8px;font-size:11px}
-      .move-btn{height:16px;padding:0 3px;font-size:9px}
-    }
+    @media(max-width:520px){button{height:32px;font-size:12px;padding:0 6px}}
     button:hover{transform:translateY(-1px)}
     .btn-line{background:#eef2ff;color:#4338ca;border:1px solid #dbeafe}
     .btn-danger{background:#ef4444}
@@ -92,21 +62,15 @@
     /* Task list */
     .task-list{display:flex;flex-direction:column;gap:10px}
     .task-item{display:grid;align-items:center;grid-template-columns:34px 1fr auto auto;gap:10px;padding:10px;background:#fff;border-radius:12px;border:1px solid #e5e7eb;cursor:pointer;transition:all .2s ease}
-    @media(max-width:520px){
-      .task-item{grid-template-columns:28px 1fr auto auto;gap:6px;padding:8px}
-    }
     .task-item:hover{box-shadow:0 4px 12px rgba(0,0,0,.1)}
     .task-item.active{border-color:#10b981;background:#ecfdf5}
     .task-item.paused{border-color:#f59e0b;background:#fffbeb}
     .task-item.expanded{padding:16px;box-shadow:0 8px 24px rgba(0,0,0,.15);transform:scale(1.02);border-color:#667eea;background:#f8faff}
     .move-controls{display:flex;flex-direction:column;gap:6px}
-    .move-btn{height:18px;padding:0 3px;font-size:9px;border-radius:4px;background:#9ca3af;color:#fff;border:none;cursor:pointer}
+    .move-btn{height:20px;padding:0 4px;font-size:10px;border-radius:5px;background:#9ca3af;color:#fff;border:none;cursor:pointer}
     .move-btn:disabled{opacity:.4}
     .task-info{min-width:0}
     .task-name{font-weight:800;font-size:14px;color:#111827;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;transition:all .2s ease}
-    @media(max-width:520px){
-      .task-name{font-size:12px;max-width:calc(100vw - 160px)}
-    }
     .task-name.expanded{white-space:normal;overflow:visible;text-overflow:unset;font-size:16px;line-height:1.4;color:#667eea}
     .task-time{font-size:12px;color:var(--muted)}
     .timer-display{font-family:ui-monospace,Menlo,Consolas,monospace;font-weight:800;color:#4338ca;min-width:78px;text-align:right;font-size:14px}
@@ -139,123 +103,27 @@
     .donation-links{display:flex;flex-direction:column;gap:8px;align-items:center}
     .donate-link{background:linear-gradient(135deg,#f59e0b,#ef4444)!important;color:#fff!important;padding:10px 16px!important;border-radius:999px!important;font-weight:800!important;text-decoration:none}
     .donation-links a{background:#fff;color:#111827;border:1px solid #e5e7eb;border-radius:10px;padding:8px 12px;text-decoration:none;font-weight:700;font-size:14px}
-
-    /*
-      =========================
-      MOBILE: Aggressive layout for Task Queue (≤520px)
-      - Show up to 2 lines of task name (so first line always visible)
-      - Prevent timer/remove from stealing horizontal space by placing them at bottom-right
-      - Reduce Remove button size and timer font
-      - Keep expanded view showing full name (no clamp)
-      =========================
-    */
-    @media (max-width:520px) {
-      /* compact the grid to icon + main content. right padding leaves room for absolute controls */
-      .task-item{
-        display:grid;
-        grid-template-columns:28px 1fr;
-        gap:8px;
-        padding:10px 112px 12px 8px; /* big right padding ensures absolute controls won't overlap text */
-        position:relative;
-        align-items:start;
-      }
-
-      /* keep move-controls visible but tiny so user can still reorder without losing space */
-      .move-controls{ display:flex; flex-direction:column; gap:4px; margin-right:4px; }
-      .move-btn{height:18px;padding:0 4px;font-size:10px;border-radius:6px}
-
-      /* allow two lines for task name, but clamp to avoid overflowing */
-      .task-name{
-        display:-webkit-box;
-        -webkit-line-clamp:2; /* show two lines on mobile preview */
-        -webkit-box-orient:vertical;
-        overflow:hidden;
-        white-space:normal;
-        font-size:13px;
-        line-height:1.12;
-        margin-right:4px;
-      }
-
-      /* expanded: remove clamp so full name appears */
-      .task-item.expanded .task-name,
-      .task-name.expanded {
-        -webkit-line-clamp:unset;
-        display:block;
-        white-space:normal;
-        overflow:visible;
-        font-size:15px;
-        line-height:1.28;
-      }
-
-      /* smaller duration line above the absolute controls so it doesn't clash */
-      .task-time{ font-size:11px; color:var(--muted); margin-top:6px; }
-
-      /* Position timer and Remove button at bottom-right; timer to left of Remove */
-      .timer-display{
-        position:absolute;
-        right:86px; /* sits left of Remove button */
-        bottom:8px;
-        font-size:12px !important;
-        min-width:56px;
-        text-align:center;
-        font-weight:800;
-        line-height:1;
-        background:rgba(59,130,246,0.08); /* subtle blue bg */
-        color:#1e40af;
-        padding:4px 8px;
-        border-radius:8px;
-        border:1px solid rgba(59,130,246,0.12);
-      }
-
-      .task-controls{
-        position:absolute;
-        right:8px;
-        bottom:8px;
-        display:flex;
-        gap:6px;
-        align-items:center;
-        z-index:2;
-      }
-
-      /* compact Remove button pill */
-      .task-controls .btn-danger{
-        height:26px;
-        padding:0 8px;
-        font-size:11px;
-        border-radius:10px;
-        line-height:1;
-        box-shadow: none;
-      }
-
-      /* Ensure expanded item gets more right padding so content doesn't collide with controls */
-      .task-item.expanded{
-        padding-right:18px;
-      }
-
-      /* make sure icons/controls inside the cell don't force overflow */
-      .task-info{ min-width:0; }
-
-      /* reduce any timer large font on collapsed state as well */
-      .timer-display.expanded{ font-size:13px; }
-    }
   </style>
 </head>
 <body>
-  <!-- Creator Credit Button -->
-  <button class="copy-all" aria-label="Made by Ashish Puri" title="Made by Ashish Puri" onclick="document.querySelector('.personal-brand h3').scrollIntoView({behavior: 'smooth'})">
-    Made By Ashish Puri💌⭐
+  <!-- Copy Entire Code button -->
+  <button class="copy-all" aria-label="Copy entire code" title="Copy entire code">
+    <svg viewBox="0 0 24 24" fill="none" stroke-width="2">
+      <rect x="9" y="9" width="13" height="13" rx="2" stroke="currentColor"></rect>
+      <rect x="2" y="2" width="13" height="13" rx="2" stroke="currentColor"></rect>
+    </svg>
   </button>
 
   <div class="container">
     <!-- Hero -->
     <div class="hero-section">
       <h1>🚀 Free Timeboxing App — Time Blocking & Focus Timer</h1>
-      <p class="subtitle">Plan focused blocks, track sessions, and reach deep work with a free, open-source timer built for makers, students, and teams.</p>
+      <p class="subtitle">Plan focused blocks, track sessions, and reach deep work with a free, open‑source timer built for makers, students, and teams.</p>
       <div class="hero-stats">
         <div class="stat-item">✅ Free & Open Source</div>
         <div class="stat-item">📱 iPhone & Android</div>
         <div class="stat-item">💻 Desktop Friendly</div>
-        <div class="stat-item">🔒 Privacy-first - No Sign-up</div>
+        <div class="stat-item">🔒 Privacy‑first - No Sign‑up</div>
       </div>
     </div>
 
@@ -486,6 +354,81 @@ Code review – 45"></textarea>
       }
     });
 
+    // === AUDIO PATCH ===
+    let ctx, master, bgGain, sfxGain;
+    let bg = {}, scheduledTicks = [], scheduledBuzzer = null;
+    function ensureCtx() {
+      if (!ctx) {
+        ctx = new (window.AudioContext || window.webkitAudioContext)();
+        master = ctx.createGain();
+        bgGain = ctx.createGain();
+        sfxGain = ctx.createGain();
+        master.gain.value = 1.0;
+        bgGain.gain.value = 0.22;
+        sfxGain.gain.value = 0.94;
+        bgGain.connect(master); sfxGain.connect(master); master.connect(ctx.destination);
+      }
+      if (ctx.state === 'suspended') ctx.resume();
+    }
+    function makeNoiseBuffer(durationSec = 2) {
+      let len = Math.floor((ctx.sampleRate || 44100) * durationSec);
+      let buf = ctx.createBuffer(1, len, ctx.sampleRate);
+      let data = buf.getChannelData(0);
+      for (let i = 0; i < len; i++) data[i] = (Math.random() * 2 - 1) * 0.7;
+      return buf;
+    }
+    function startFocusLoop() {
+      stopFocusLoop();
+      const src = ctx.createBufferSource();
+      src.buffer = makeNoiseBuffer(2);
+      src.loop = true;
+      const filter = ctx.createBiquadFilter();
+      filter.type = 'lowpass'; filter.frequency.value = 900; filter.Q.value = 0.0001;
+      const lfoOsc = new OscillatorNode(ctx, {type: 'sine', frequency: 0.07});
+      const lfoAmp = new GainNode(ctx, {gain: 0.04});
+      const baseVol = new ConstantSourceNode(ctx, {offset: bgGain.gain.value});
+      bgGain.gain.value = 0;
+      baseVol.connect(bgGain.gain); lfoOsc.connect(lfoAmp).connect(bgGain.gain);
+      baseVol.start(); lfoOsc.start();
+      src.connect(filter).connect(bgGain);
+      src.start();
+      bg = {src, filter, lfoOsc, lfoAmp, baseVol};
+    }
+    function stopFocusLoop() {
+      try { bg.src && bg.src.stop(); } catch {}
+      Object.values(bg).forEach(n => {if(n && n.disconnect) try{n.disconnect();}catch{}});
+      bg = {};
+      if (bgGain) bgGain.gain.value = 0.22;
+    }
+    function scheduleTick(atTime) {
+      const o = new OscillatorNode(ctx, {type: 'square', frequency: 1200});
+      const g = new GainNode(ctx, {gain: 0.0001});
+      o.connect(g).connect(sfxGain);
+      g.gain.setValueAtTime(0.0001, atTime);
+      g.gain.exponentialRampToValueAtTime(0.4, atTime + 0.01);
+      g.gain.exponentialRampToValueAtTime(0.0001, atTime + 0.06);
+      o.start(atTime); o.stop(atTime + 0.09);
+      return { o, g };
+    }
+    function scheduleBuzzer(atTime) {
+      const o = new OscillatorNode(ctx, { type: 'sawtooth', frequency: 890 });
+      const g = new GainNode(ctx, { gain: 0.0001 });
+      o.connect(g).connect(sfxGain);
+      o.frequency.setValueAtTime(890, atTime);
+      o.frequency.exponentialRampToValueAtTime(270, atTime + 0.18);
+      g.gain.setValueAtTime(0.0001, atTime);
+      g.gain.exponentialRampToValueAtTime(1.07, atTime + 0.04);
+      g.gain.exponentialRampToValueAtTime(0.0001, atTime + 0.22);
+      o.start(atTime); o.stop(atTime + 0.25);
+      return {o, g};
+    }
+    function clearScheduled() {
+      scheduledTicks.forEach(({o}) => { try {o.stop();}catch{} });
+      if (scheduledBuzzer && scheduledBuzzer.o) try {scheduledBuzzer.o.stop();}catch{}
+      scheduledTicks = []; scheduledBuzzer = null;
+    }
+    // === END AUDIO PATCH ===
+
     // App state
     let tasks = [];
     let currentTaskIndex = 0;
@@ -669,6 +612,19 @@ Code review – 45"></textarea>
       if(currentTaskIndex>=tasks.length){ currentTaskIndex=0; tasks.forEach(t=>t.completed=false); elapsedTime=0; }
       if(!timeRemaining) timeRemaining = tasks[currentTaskIndex].duration;
       if(timer) return;
+      // === AUDIO PATCH ===
+      ensureCtx();
+      clearScheduled();
+      startFocusLoop();
+      let now = ctx.currentTime, endAt = now + timeRemaining;
+      let tickWindow = Math.min(20, timeRemaining); // Last 20s ticks
+      for(let i = tickWindow; i >= 1; i--) {
+        let t = endAt - i;
+        if (t > now) scheduledTicks.push(scheduleTick(t));
+      }
+      scheduledBuzzer = scheduleBuzzer(endAt);
+      scheduledBuzzer.o.onended = () => { setTimeout(()=>stopFocusLoop(), 120); setTimeout(()=>skipTask(), 100); };
+      // === END AUDIO PATCH ===
       isPaused=false; warningShown=false;
       timer = setInterval(()=>{
         if(timeRemaining>0){
@@ -677,18 +633,27 @@ Code review – 45"></textarea>
           updateTaskDisplay();
           updateProgress();
         } else {
-          clearInterval(timer); timer=null; completeCurrentTask();
+          clearInterval(timer); timer=null;
+          // let buzzer/skipTask handle step
         }
       },1000);
       updateTaskDisplay();
     }
 
-    function pauseTimer(){ if(timer){ clearInterval(timer); timer=null; isPaused=true; updateTaskDisplay(); } }
+    function pauseTimer(){ 
+      if(timer){ clearInterval(timer); timer=null; isPaused=true; updateTaskDisplay(); }
+      // === AUDIO PATCH ===
+      stopFocusLoop(); clearScheduled();
+      // === END AUDIO PATCH ===
+    }
 
     function stopTimer(){
       if(timer){ clearInterval(timer); timer=null; }
       isPaused=false; warningShown=false; dismissWarning();
       if(currentTaskIndex<tasks.length){ timeRemaining = tasks[currentTaskIndex].duration; } else { timeRemaining=0; }
+      // === AUDIO PATCH ===
+      stopFocusLoop(); clearScheduled();
+      // === END AUDIO PATCH ===
       updateTaskDisplay();
     }
 
@@ -699,6 +664,9 @@ Code review – 45"></textarea>
       elapsedTime += tasks[currentTaskIndex].duration;
       currentTaskIndex++;
       warningShown=false; dismissWarning();
+      // === AUDIO PATCH ===
+      stopFocusLoop(); clearScheduled();
+      // === END AUDIO PATCH ===
       if(currentTaskIndex<tasks.length){ timeRemaining = tasks[currentTaskIndex].duration; setTimeout(()=>startTimer(), 350); } else { timeRemaining=0; }
       calculateTotalTime();
       updateTaskDisplay();
@@ -710,6 +678,9 @@ Code review – 45"></textarea>
       currentTaskIndex--; tasks[currentTaskIndex].completed=false;
       timeRemaining = tasks[currentTaskIndex].duration;
       warningShown=false; dismissWarning(); isPaused=false;
+      // === AUDIO PATCH ===
+      stopFocusLoop(); clearScheduled();
+      // === END AUDIO PATCH ===
       setTimeout(()=>startTimer(), 350);
       calculateTotalTime(); updateTaskDisplay();
     }
@@ -740,6 +711,9 @@ Code review – 45"></textarea>
       if(confirm('Remove all tasks?')){
         if(timer){ clearInterval(timer); timer=null; }
         tasks.length=0; currentTaskIndex=0; timeRemaining=0; totalTime=0; elapsedTime=0; isPaused=false; warningShown=false; expandedTaskIndex=-1; dismissWarning();
+        // === AUDIO PATCH ===
+        stopFocusLoop(); clearScheduled();
+        // === END AUDIO PATCH ===
         updateTaskDisplay(); updateProgress();
       }
     }
