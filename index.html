@@ -118,12 +118,12 @@
     <!-- Hero -->
     <div class="hero-section">
       <h1>🚀 Free Timeboxing App — Time Blocking & Focus Timer</h1>
-      <p class="subtitle">Plan focused blocks, track sessions, and reach deep work with a free, open‑source timer built for makers, students, and teams.</p>
+      <p class="subtitle">Plan focused blocks, track sessions, and reach deep work with a free, open-source timer built for makers, students, and teams.</p>
       <div class="hero-stats">
         <div class="stat-item">✅ Free & Open Source</div>
         <div class="stat-item">📱 iPhone & Android</div>
         <div class="stat-item">💻 Desktop Friendly</div>
-        <div class="stat-item">🔒 Privacy‑first - No Sign‑up</div>
+        <div class="stat-item">🔒 Privacy-first - No Sign-up</div>
       </div>
     </div>
 
@@ -279,7 +279,6 @@ Code review – 45"></textarea>
       <h3>The Mindset Shift</h3>
       <p>Timeboxing isn't just a productivity tool — it's a training ground for mental toughness. When you learn to finish inside the walls of a time block, you train the same self-control elite performers rely on in high-stakes situations. You'll move faster, make cleaner decisions, and feel in control of your time again.</p>
     </section>
-
 
     <!-- Warning Popup -->
     <div id="warningPopup" class="warning-popup" role="dialog" aria-live="assertive">
@@ -641,7 +640,8 @@ Code review – 45"></textarea>
     }
 
     function pauseTimer(){ 
-      if(timer){ clearInterval(timer); timer=null; isPaused=true; updateTaskDisplay(); }
+      if(!timer) return;
+      clearInterval(timer); timer=null; isPaused=true; updateTaskDisplay();
       // === AUDIO PATCH ===
       stopFocusLoop(); clearScheduled();
       // === END AUDIO PATCH ===
@@ -667,7 +667,7 @@ Code review – 45"></textarea>
       // === AUDIO PATCH ===
       stopFocusLoop(); clearScheduled();
       // === END AUDIO PATCH ===
-      if(currentTaskIndex<tasks.length){ timeRemaining = tasks[currentTaskIndex].duration; setTimeout(()=>startTimer(), 350); } else { timeRemaining=0; }
+      if(currentTaskIndex<tasks.length){ timeRemaining = tasks[currentTaskIndex].duration; } else { timeRemaining=0; }
       calculateTotalTime();
       updateTaskDisplay();
     }
@@ -681,7 +681,6 @@ Code review – 45"></textarea>
       // === AUDIO PATCH ===
       stopFocusLoop(); clearScheduled();
       // === END AUDIO PATCH ===
-      setTimeout(()=>startTimer(), 350);
       calculateTotalTime(); updateTaskDisplay();
     }
 
